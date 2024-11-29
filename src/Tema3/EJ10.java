@@ -30,28 +30,45 @@ public class EJ10 {
     }
 
     public static void main(String[] args) {
-        Scanner in=new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         char opcion;
         do {
             showMenu();
-            opcion=in.next().charAt(0);
+            opcion = in.next().charAt(0);
             switch (opcion) {
-                case  'a' ->{
+                case 'a' -> {
                     System.out.println("inrese un numero");
-                    int numero= in.nextInt();
-                    System.out.println(EJ.numberSign(numero));
-                }
-                case  'b'->{
+                    int numero = in.nextInt();
+                    if (EJ.numberSign(numero)>=1){
+                        System.out.println("Es positivo");
+                    } else if (EJ.numberSign(numero)==0) {
+                        System.out.println("Es igual a cero");
+                    }else {
+                        System.out.println("Es negativo");
+                    }
 
                 }
-                case 'j'->{
+                case 'b' -> {
+                    System.out.println("ingresa tu edad");
+                    int edad = in.nextInt();
+
+                    if (EJ2.isAdult(edad)){
+                        System.out.println("es mayor");
+                    }else{
+                        System.out.println("es menor");
+                    }
+                }
+                case 'c' -> {
+
+                }
+                case 'j' -> {
                     System.out.println("adios");
                 }
                 default -> {
                     System.out.println("no vale");
                 }
             }
-        }
-        while (opcion!='j');
+        } while (opcion != 'j');
+
     }
 }

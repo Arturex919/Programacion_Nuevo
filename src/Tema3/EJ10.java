@@ -59,7 +59,18 @@ public class EJ10 {
                     }
                 }
                 case 'c' -> {
-
+                    int radio;
+                    do {
+                        System.out.println("ingrese un radio");
+                        radio = in.nextInt();
+                        System.out.println(EJ3.calculateCiclePerimeter(radio));
+                        System.out.println(EJ3.calculateCircleArea(radio));
+                    }while (EJ3.validRadius(radio));
+                }
+                case 'd'->{
+                    int cantidad;
+                    System.out.println("Ingrese una cantidad");
+                    cantidad= in.nextInt();
                 }
                 case 'j' -> {
                     System.out.println("adios");

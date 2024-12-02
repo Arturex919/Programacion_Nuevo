@@ -1,4 +1,4 @@
-package Tema3;
+package TEMA3.TEMA3_ACT;
 
 import java.util.Scanner;
 
@@ -7,12 +7,12 @@ public class EJ7 {
     //introduzca el 0, para cada número nos dirá si es primo o no.//
     public static boolean esPrimo(int numero) {
         boolean esPrimo = true;
-        if (numero < 1) {
+        if (numero <= 1) {
             return false;
         }
         // creamos un for para que vaya recorriendo los numeros que queremos y creamos un if dentro del for
         //para sacar el modulo//
-        for (int i = 2; i <= numero; i++) {
+        for (int i = 2; i <= Math.sqrt(numero); i++) {
             if (numero % i == 0) {
                 // No es primo si tiene divisores distintos de 1 y sí mismo.//
                 return false;

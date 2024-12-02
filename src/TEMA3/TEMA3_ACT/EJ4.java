@@ -1,4 +1,4 @@
-package Tema3;
+package TEMA3.TEMA3_ACT;
 
 import java.util.Scanner;
 // Escribe un programa que permita pasar de euros a dólares y de dólares

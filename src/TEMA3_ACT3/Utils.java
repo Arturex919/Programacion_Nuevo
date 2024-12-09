@@ -71,8 +71,11 @@ public class Utils {
         String result = "" + euro2 + euro1 + fiftycent + cent20 + cent10 + cent5 + cent2 + cent1;
 
         return result;
+    }
+    public static int getNIF(int num){
 
     }
+
 
 
     public static void main(String[] args) {

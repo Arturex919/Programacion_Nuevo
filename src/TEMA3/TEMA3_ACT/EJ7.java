@@ -6,7 +6,7 @@ public class EJ7 {
     //) Escribe un programa que pida números enteros positivos hasta que se
     //introduzca el 0, para cada número nos dirá si es primo o no.//
     public static boolean esPrimo(int numero) {
-        boolean esPrimo = true;
+        //boolean esPrimo = true;
         if (numero <= 1) {
             return false;
         }

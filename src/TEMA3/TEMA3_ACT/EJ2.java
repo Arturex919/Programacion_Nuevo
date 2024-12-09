@@ -32,15 +32,14 @@ public class EJ2 {
     }
     public static boolean isAdult(int age) {
         //se crea un bool resul para comprobar la edad si true o false//
-        boolean result = false;
+        //boolean result = false;
         //si es mayor es true//
         if (age >= 18) {
-            result = true;
-        }else {
-            System.out.println("");
+            //result = true;
+            return true;
         }
         //hacemos el return a la variable return
-        return result;
+        return false;
     }
     public static int numberSign(int numero){
         if (numero>0){

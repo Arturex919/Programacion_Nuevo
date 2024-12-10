@@ -86,7 +86,7 @@ public class Utils {
             System.out.println("Introduce un numero");
             numero = in.nextInt();
             System.out.println("Ingrese la letra del DNI");
-
+            letra=in.
             if (numero >= 1000000 && numero <= 99999999) {
 
                 System.out.println("Su NIF es :");

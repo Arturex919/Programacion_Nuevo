@@ -72,17 +72,56 @@ public class Utils {
 
         return result;
     }
-    public static int getNIF(int num){
 
+
+    public static String getNIF(int numero) {
+        String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+        int resto=numero% 23;
+        char letra = letras.charAt(resto);
+        return numero+String.valueOf(letra);
     }
+    public static boolean isValidNIF(int numero,char letra) {
+        Scanner in = new Scanner(System.in);
+        do {
+            System.out.println("Introduce un numero");
+            numero = in.nextInt();
+            System.out.println("Ingrese la letra del DNI");
 
+            if (numero >= 1000000 && numero <= 99999999) {
+
+                System.out.println("Su NIF es :");
+            } else {
+                System.out.println("ingrese un numero valido");
+            }
+        }
+        while (numero <= 1000000 || numero >= 99999999);
+
+        return true;
+    }
 
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.println("Introduce una cantidad en euros: ");
-        double art = in.nextDouble(); // Leer la cantidad en euros
-        System.out.println("Las monedas son: " + getCoins(art));
-    }
+        int numero;
 
+/* DNI
+public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    int numero;
+    do {
+        System.out.println("Introduce un numero");
+         numero = in.nextInt();
+        if (numero >=1000000 && numero<=99999999) {
+
+            System.out.println("Su NIF es :"+getNIF(numero));
+
+//        } else if (numero >8 ) {
+//            System.out.println("ingrese un numero valido");
+        }else {
+            System.out.println("ingrese un numero valido");
+        }
+    }
+    while (numero <=1000000 || numero>=99999999);
+
+*/
 }

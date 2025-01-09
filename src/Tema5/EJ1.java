@@ -36,6 +36,7 @@ public class EJ1 {
         for (int i=0;i<media.length;i++){
 
         }
+        return numMedia;
     }
 
     public static void main(String[] args) {

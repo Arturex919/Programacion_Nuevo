@@ -1,6 +1,6 @@
 package TEMA3_ACT3;
 
-
+/*
 import TEMA3.TEMA3_ACT2.MyMath;
 
 import java.util.Scanner;
@@ -124,4 +124,3 @@ public static void main(String[] args) {
     while (numero <=1000000 || numero>=99999999);
 
 */
-}

@@ -45,7 +45,6 @@ public class atrapaMosca {
         int[] tablero = new int[15];
         tablero = mosca(tablero);
         boolean atrapa = false;
-        boolean continua=false;
         boolean continuarJuego=true;
         do {
             do {
@@ -55,7 +54,7 @@ public class atrapaMosca {
                 if (usuario < 1 || usuario > 15) {
                     System.out.println("Añade una posicion valida");
                 }
-            }while (!continua);
+            }while (usuario < 1 || usuario > 15);
 
             int arrayUser = usuario - 1;//es para que el numero que ingrese el usuario se convierta en la posicion del array
             int posicion = busquedadMosca(tablero);

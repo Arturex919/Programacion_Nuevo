@@ -41,17 +41,12 @@ public class busca_Parejas {
     public static void mostraTab(String[] tabla, boolean[] valida) {
         System.out.println("Tablero actual:");
 
-        // Imprimir en formato cuadrado (4x5 por ejemplo)
-        int columnas = 5;  // Número de columnas
         for (int i = 0; i < tabla.length; i++) {
             if (valida[i]) {
                 System.out.print(tabla[i] + " ");  // Mostrar el animal si está visible
             } else {
                 System.out.print("? ");  // Mostrar "?" si está oculto
             }
-
-            // Después de imprimir 5 columnas, ir a la siguiente línea
-
         }
         System.out.println();
     }

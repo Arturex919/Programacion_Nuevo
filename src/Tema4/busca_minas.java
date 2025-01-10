@@ -26,7 +26,6 @@ public class busca_minas {
             }
         }
     }
-
     //nota si el if no funcion revisa los corchetes
     public static void tablero(char[] tablero, boolean[] verificada) {
         System.out.println("Tablero Actual");
@@ -38,14 +37,14 @@ public class busca_minas {
             }
         }
     }
-
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        int posicion;
         int[] pista = new int[20];
         char[] tablero = new char[20];
         boolean[] encontrada = new boolean[20];
         boolean juega = true;
+        boolean correcta=false;
         boolean salir = true;
         int casillas = 0;
         System.out.println("---- Buscaminas ----");
@@ -57,7 +56,8 @@ public class busca_minas {
             busca_minas.tablero(tablero, encontrada);
             System.out.println("");
             System.out.println("selecciona una casilla del 0-19");
-            int posicion = in.nextInt();
+                 posicion = in.nextInt();
+            //para evitar que el usuario inserte varias veces el mismo número
             while (posicion < 0 || posicion > tablero.length || encontrada[posicion]) {
                 if (encontrada[posicion]) {
                     System.out.println("Has descubierta esta zona ");
@@ -66,7 +66,6 @@ public class busca_minas {
                 }
                 posicion = in.nextInt();
             }
-
             encontrada[posicion] = true;
 
             if (tablero[posicion] == '*') {

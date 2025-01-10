@@ -44,7 +44,8 @@ public class router {
                 if (numeroHabitacion < 1 || numeroHabitacion > 20) {
                     System.out.println("selecciona un numero valido del 1 al 20");
                 }
-                    System.out.println("la potencia del router es :");
+                //sobra la linea siguiente
+                System.out.println("la potencia del router es :");
 
             } while (numeroHabitacion < 1 || numeroHabitacion > 20);
             do {

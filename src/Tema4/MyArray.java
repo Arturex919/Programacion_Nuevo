@@ -64,6 +64,7 @@ public class MyArray {
         // Verificar que los tamaños de los vectores sean iguales
         if (numA.length != numB.length) {
             System.out.println("Error: Los vectores deben tener el mismo número de elementos.");
+
         }
 
         // Crear el array para almacenar la suma
@@ -148,7 +149,7 @@ public class MyArray {
     public static boolean capicua(int[] num) {
         int inicio = 0;
         int fin = num.length - 1;
-        while (inicio < fin) {
+        while (inicio < fin){
             if (num[inicio] != num[fin]) {
                 return false;//si son distinto es falso//
             }

@@ -102,11 +102,13 @@ public class juegoModular {
                 }
             } while (computadora != 5);
             return pc;
-        }/*
-    public static int empiezaJuega(int danio,int defender ){
+        }
+        public static boolean empieza(int velocidad, int velocidad2){
 
-        return
-    }*/
+            if (velocidad>=velocidad2)
+
+        }
+
         public static void main(String[] args) {
             Scanner in = new Scanner(System.in);
             int personaje;
@@ -124,7 +126,6 @@ public class juegoModular {
                 readCpuStats(dificultad);
 
                 if (readPlayerStats(personaje) >= readCpuStats(dificultad)) ;
-
             }
         }
     }

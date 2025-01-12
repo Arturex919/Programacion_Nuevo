@@ -50,7 +50,7 @@ public class juegoModular {
         } while (valor < 1 || valor > 200);
         return valor;
     }
-
+//el metodo que nos confima los puntos correcto
     public static boolean validarTotalPuntos(int velocidad, int ataque, int defensa, int vida) {
         int total = velocidad + ataque + defensa + vida;
         System.out.println("El total de su personaje es:"+total);
@@ -60,7 +60,7 @@ public class juegoModular {
         }
         return true;
     }
-
+//nos comprueba quien empieza
     public static boolean empieza(int velocidadPlayer, int velocidadCpu) {
         if (velocidadPlayer > velocidadCpu) {
             System.out.println("El jugador 1 comienza el juego.");
@@ -68,14 +68,14 @@ public class juegoModular {
         } else if (velocidadCpu > velocidadPlayer) {
             System.out.println("El CPU comienza el juego.");
             return false;
-        } else {
+        } else {//en caso de ser iguales se realiza un azar
             Random random = new Random();
             boolean turnoJugador = random.nextBoolean();
             System.out.println(turnoJugador ? "El jugador 1 comienza el juego." : "El CPU comienza el juego.");
             return turnoJugador;
         }
     }
-
+//logica de combate
     public static void playerPela(int velocidadPlayer, int ataquePlayer, int defensaPlayer, int vidaPlayer, int velocidadCpu, int ataqueCpu, int defensaCpu, int vidaCpu) {
         Scanner in = new Scanner(System.in);
         Random random = new Random();
@@ -117,7 +117,7 @@ public class juegoModular {
                 switch (accionCpu) {
                     case 1 -> {
                         int danio = Math.max(15, ataqueCpu - defensaPlayer / 2);
-                        vidaPlayer = Math.max(0, vidaPlayer - danio);
+                        vidaPlayer = Math.max(0, vidaPlayer - danio);//para que la bida nollegue a menos de cero
                         System.out.println("El CPU te ha atacado causando " + danio + " de daño.");
                     }
                     case 2 -> {
@@ -130,7 +130,7 @@ public class juegoModular {
                     }
                     case 4 -> {
                         int danio = 50 + random.nextInt(11);
-                        vidaPlayer = Math.max(0, vidaPlayer - danio);
+                        vidaPlayer = Math.max(0, vidaPlayer - danio);//para que la bida nollegue a menos de cero
                         System.out.println("El CPU usó su habilidad final causando " + danio + " de daño.");
                     }
                 }
@@ -139,13 +139,13 @@ public class juegoModular {
             muestraVida("Jugador", vidaPlayer, 200);
             muestraVida("CPU", vidaCpu, 200);
 
-            if (vidaCpu == 0) {
+            if (vidaCpu == 0) {//comprueba si acabo el juego pa pc
                 personajes.fin();
                 return;
             }
 
             if (vidaPlayer == 0) {
-                personajes.finPierde();
+                personajes.finPierde();//comprueba si acabo el juego pa player
                 return;
             }
             turnoJugador = !turnoJugador;
@@ -162,14 +162,16 @@ public class juegoModular {
         System.out.println("Selecciona las características de tu personaje (máximo 500 puntos en total):");
 
         int velocidadPlayer, ataquePlayer, defensaPlayer, vidaPlayer;
-
+//haces el bucle para asegura que el usuario ingrese todos los atributos al menos una vez.
+        //valida Cada atributo y esta garantiza que los valores estén dentro del rango permitido
         do {
             velocidadPlayer = validarAtributo("Velocidad");
             ataquePlayer = validarAtributo("Ataque");
             defensaPlayer = validarAtributo("Defensa");
             vidaPlayer = validarAtributo("Vida");
         } while (!validarTotalPuntos(velocidadPlayer, ataquePlayer, defensaPlayer, vidaPlayer));
-
+        //: Después de ingresar los atributos, el método validarTotalPuntos
+        // verifica que la suma de los atributos no exceda los 500 puntos.
         showmenu2();
         int dificultad = in.nextInt();
 

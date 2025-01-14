@@ -1,144 +1,220 @@
 package Tema4;
+
+import Tema4.personajes;
+
+import java.util.Random;
 import java.util.Scanner;
+
 public class juegoModular {
 
+    public static void showmenu() {
+        System.out.println("----- MENÚ DE PERSONAJES -----");
+        System.out.println("Escriba el nombre de tu personaje");
+        System.out.println("1. Destructor");
+        personajes.destuctor();
+        System.out.println("2. El Mamado");
+        personajes.mamado();
+        System.out.println("3. Kong's");
+        personajes.Kongs();
+        System.out.println("4. El Capo");
+        personajes.capo();
+        System.out.println("5. Salir del juego");
 
-        public static void showmenu() {
-            System.out.println("----- MENÚ DE PERSONAJES -----");
-            System.out.println("1. Destructor (Velocidad: 50, Ataque: 60, Defensa: 150, Vida: 180)");
-            System.out.println("2. El Mamado (Velocidad: 120, Ataque: 130, Defensa: 150, Vida: 180)");
-            System.out.println("3. Kong's (Velocidad: 150, Ataque: 150, Defensa: 70, Vida: 100)");
-            System.out.println("4. Capo (Velocidad: 100, Ataque: 120, Defensa: 100, Vida: 150)");
-            System.out.println("5.Salir del juego");
-            System.out.print("Seleccione su personaje: ");
+        System.out.println("Escriba aqui su personaje");
+    }
+
+    public static void showmenu2() {
+        System.out.println("----- DIFICULTAD DEL CPU -----");
+        System.out.println("1. Fácil");
+        System.out.println("2. Medio");
+        System.out.println("3. Difícil");
+        System.out.println("4. Extrema");
+        System.out.print("Seleccione la dificultad: ");
+    }
+
+    public static void muestraVida(String jugador, int vida, int vidaMaxima) {
+        int numCorazones = Math.max(1, (vida * 20) / vidaMaxima);
+        String barraVida = "❤️".repeat(numCorazones);
+        System.out.println("Vida de " + jugador + ": [" + barraVida + "] " + vida);
+    }
+
+    public static int validarAtributo(String atributo) {
+        Scanner in=new Scanner(System.in);
+        int valor;
+        do {
+            System.out.print("Ingrese " + atributo + " (1-200): ");
+            valor = in.nextInt();
+            if (valor < 1 || valor > 200) {
+                System.out.println(atributo + " debe estar entre 1 y 200. Intente nuevamente.");
+            }
+        } while (valor < 1 || valor > 200);
+        return valor;
+    }
+//el metodo que nos confima los puntos correcto
+    public static boolean validarTotalPuntos(int velocidad, int ataque, int defensa, int vida) {
+        int total = velocidad + ataque + defensa + vida;
+        System.out.println("El total de su personaje es:"+total);
+        if (total > 500) {
+            System.out.println("El total de puntos no puede exceder 500. Intente nuevamente.");
+            return false;
         }
+        return true;
+    }
+//nos comprueba quien empieza
+    public static boolean empieza(int velocidadPlayer, int velocidadCpu) {
+        if (velocidadPlayer > velocidadCpu) {
+            System.out.println("El jugador 1 comienza el juego.");
+            return true;
+        } else if (velocidadCpu > velocidadPlayer) {
+            System.out.println("El CPU comienza el juego.");
+            return false;
+        } else {//en caso de ser iguales se realiza un azar
+            Random random = new Random();
+            boolean turnoJugador = random.nextBoolean();
+            System.out.println(turnoJugador ? "El jugador 1 comienza el juego." : "El CPU comienza el juego.");
+            return turnoJugador;
+        }
+    }
+//logica de combate
+    public static void playerPela(int velocidadPlayer, int ataquePlayer, int defensaPlayer, int vidaPlayer, int velocidadCpu, int ataqueCpu, int defensaCpu, int vidaCpu) {
+        Scanner in = new Scanner(System.in);
+        Random random = new Random();
+        boolean turnoJugador = empieza(velocidadPlayer, velocidadCpu);
 
-        public static int readPlayerStats(int jugador) {
-            Scanner in = new Scanner(System.in);
-            int personaje;
-            do {
-                personaje = in.nextInt();
-                switch (personaje) {
+        while (vidaPlayer > 0 && vidaCpu > 0) {
+            if (turnoJugador) {
+                System.out.println("Escoje una acción: (1) Atacar, (2) Defender, (3) Curar, (4) Habilidad Final, (5) Salir");
+                int opcion = in.nextInt();
+
+                switch (opcion) {
                     case 1 -> {
-                        System.out.println("Haz seleccionado a Destructor");
-                        int Velocidad = 90;
-                        int Ataque = 100;
-                        int Defensa = 150;
-                        int Vida = 160;
+                        int danio = Math.max(10, ataquePlayer - defensaCpu / 2);
+                        vidaCpu = Math.max(0, vidaCpu - danio);
+                        System.out.println("Has atacado al CPU causando " + danio + " de daño.");
                     }
                     case 2 -> {
-                        System.out.println("Has seleccionado: El Mamado");
-                        int Velocidad = 90;
-                        int Ataque = 120;
-                        int Defensa = 145;
-                        int Vida = 145;
+                        defensaPlayer += 10;
+                        System.out.println("Has aumentado tu defensa en 10 puntos.");
                     }
                     case 3 -> {
-                        System.out.println("Has seleccionado: KONG´S");
-                        int Velocidad = 90;
-                        int Ataque = 130;
-                        int Defensa = 120;
-                        int Vida = 160;
+                        vidaPlayer = Math.min(200, vidaPlayer + 40);
+                        System.out.println("Te has curado 40 puntos de vida.");
                     }
                     case 4 -> {
-                        System.out.println("Has seleccionado: El Capo");
-                        int Velocidad = 120;
-                        int Ataque = 160;
-                        int Defensa = 110;
-                        int Vida = 110;
+                        int danio = 50 + random.nextInt(11);
+                        vidaCpu = Math.max(0, vidaCpu - danio);
+                        System.out.println("Usaste tu habilidad final causando " + danio + " de daño.");
                     }
                     case 5 -> {
-                        System.out.println("Hasta la proximaaaaa");
+                        System.out.println("Has decidido salir del juego. Hasta la próxima.");
+                        return;
                     }
-                    default -> {
-                        System.out.println("opcion no valida, intenta de nuevo ");
-                    }
+                    default -> System.out.println("Opción no válida.");
                 }
-            } while (personaje != 5);
 
-            return jugador;
-        }
-
-        public static int readCpuStats(int pc) {
-            Scanner in = new Scanner(System.in);
-            int computadora;
-            do {
-                computadora = in.nextInt();
-                switch (computadora) {
+            } else {
+                int accionCpu = random.nextInt(4) + 1;
+                switch (accionCpu) {
                     case 1 -> {
-                        System.out.println("Haz seleccionado a Destructor");
-                        int Velocidad = 90;
-                        int Ataque = 100;
-                        int Defensa = 164;
-                        int Vida = 120;
+                        int danio = Math.max(15, ataqueCpu - defensaPlayer / 2);
+                        vidaPlayer = Math.max(0, vidaPlayer - danio);//para que la bida nollegue a menos de cero
+                        System.out.println("El CPU te ha atacado causando " + danio + " de daño.");
                     }
                     case 2 -> {
-                        System.out.println("Has seleccionado: El Mamado");
-                        int Velocidad = 90;
-                        int Ataque = 120;
-                        int Defensa = 145;
-                        int Vida = 145;
+                        defensaCpu += 10;
+                        System.out.println("El CPU ha aumentado su defensa en 10 puntos.");
                     }
                     case 3 -> {
-                        System.out.println("Has seleccionado: KONG´S");
-                        int Velocidad = 90;
-                        int Ataque = 110;
-                        int Defensa = 105;
-                        int Vida = 160;
+                        vidaCpu = Math.min(200, vidaCpu + 35);
+                        System.out.println("El CPU se ha curado 35 puntos de vida.");
                     }
                     case 4 -> {
-                        System.out.println("Has seleccionado: El Capo");
-                        int Velocidad = 100;
-                        int Ataque = 145;
-                        int Defensa = 155;
-                        int Vida = 100;
-                    }
-                    case 5 -> {
-                        System.out.println("Hasta la proximaaaaa");
-                    }
-                    default -> {
-                        System.out.println("opcion no valida, intenta de nuevo ");
+                        int danio = 50 + random.nextInt(11);
+                        vidaPlayer = Math.max(0, vidaPlayer - danio);//para que la bida nollegue a menos de cero
+                        System.out.println("El CPU usó su habilidad final causando " + danio + " de daño.");
                     }
                 }
-            } while (computadora != 5);
-            return pc;
+            }
+
+            muestraVida("Jugador", vidaPlayer, 200);
+            muestraVida("CPU", vidaCpu, 200);
+
+            if (vidaCpu == 0) {//comprueba si acabo el juego pa pc
+                personajes.fin();
+                return;
+            }
+
+            if (vidaPlayer == 0) {
+                personajes.finPierde();//comprueba si acabo el juego pa player
+                return;
+            }
+            turnoJugador = !turnoJugador;
         }
-        public static boolean empieza(int velocidad, int velocidad2){
+    }
 
-            if (velocidad>=velocidad2)
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
 
-        }
+        personajes.bienvenida();
+        showmenu();
+        String personaje=in.nextLine();
+        System.out.println("Has escogido a: "+personaje);
+        System.out.println("Selecciona las características de tu personaje (máximo 500 puntos en total):");
 
-        public static void main(String[] args) {
-            Scanner in = new Scanner(System.in);
-            int personaje;
-            System.out.println("Escoje El modo de juego");
-            System.out.println("1. Cpu");
-            System.out.println("2. ");
-            int modoJuego = in.nextInt();
-            if (modoJuego == 1) {
-                showmenu();
-                System.out.println("Escoja un personaje del 1 al 4");
-                personaje = in.nextInt();
-                readPlayerStats(personaje);
-                System.out.println("Escoje la dificulta del juego");
-                int dificultad = in.nextInt();
-                readCpuStats(dificultad);
+        int velocidadPlayer, ataquePlayer, defensaPlayer, vidaPlayer;
+//haces el bucle para asegura que el usuario ingrese todos los atributos al menos una vez.
+        //valida Cada atributo y esta garantiza que los valores estén dentro del rango permitido
+        do {
+            velocidadPlayer = validarAtributo("Velocidad");
+            ataquePlayer = validarAtributo("Ataque");
+            defensaPlayer = validarAtributo("Defensa");
+            vidaPlayer = validarAtributo("Vida");
+        } while (!validarTotalPuntos(velocidadPlayer, ataquePlayer, defensaPlayer, vidaPlayer));
+        //: Después de ingresar los atributos, el método validarTotalPuntos
+        // verifica que la suma de los atributos no exceda los 500 puntos.
+        showmenu2();
+        int dificultad = in.nextInt();
 
-                if (readPlayerStats(personaje) >= readCpuStats(dificultad)) ;
+        int velocidadCpu = 0, ataqueCpu = 0, defensaCpu = 0, vidaCpu = 0;
+
+        switch (dificultad) {
+            case 1 -> {
+                velocidadCpu = 90;
+                ataqueCpu = 80;
+                defensaCpu = 100;
+                vidaCpu = 120;
+                System.out.println("Has seleccionado la dificultad Fácil.");
+            }
+            case 2 -> {
+                velocidadCpu = 95;
+                ataqueCpu = 110;
+                defensaCpu = 90;
+                vidaCpu = 130;
+                System.out.println("Has seleccionado la dificultad Media.");
+            }
+            case 3 -> {
+                velocidadCpu = 110;
+                ataqueCpu = 120;
+                defensaCpu = 110;
+                vidaCpu = 160;
+                System.out.println("Has seleccionado la dificultad Difícil.");
+            }
+            case 4 -> {
+                velocidadCpu = 110;
+                ataqueCpu = 145;
+                defensaCpu = 95;
+                vidaCpu = 150;
+                System.out.println("Has seleccionado la dificultad Extrema.");
+            }
+            default -> {
+                System.out.println("Dificultad no válida. Saliendo del juego.");
+                return;
             }
         }
-    }
-        /*
-    public static void stacks(int [] caracteristicaPersonaje){
-        System.out.println("caracteristica de la PC");
-        System.out.println("⚡ Velocidad: "+caracteristicaPersonaje[0]);
-        System.out.println("⚔️ Ataque:"+ caracteristicaPersonaje[1]);
-        System.out.println("🛡️ Defensa:"+caracteristicaPersonaje[2]);
-        System.out.println("❤️Vida: "+caracteristicaPersonaje[3]);
-    }
-        public static void main (String[]args){
-            Scanner in = new Scanner(System.in);
-            showmenu();
-*/
 
+        muestraVida("Jugador", vidaPlayer, 200);
+        muestraVida("CPU", vidaCpu, 200);
+
+        playerPela(velocidadPlayer, ataquePlayer, defensaPlayer, vidaPlayer, velocidadCpu, ataqueCpu, defensaCpu, vidaCpu);
+    }
+}

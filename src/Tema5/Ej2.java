@@ -10,7 +10,7 @@ public class Ej2 {
         //se ingresa la mosca dentro del lugar para que varie la posicion
         // 1 representa la mosca
         posicionM[mosca][mosca] = 1;
-        return posicionM;
+        return posicionMOSCA;
     }
     public static int [][]busquedaMosca(int[][]tablero){
         for (int i = 0; i < tablero.length; i++) {

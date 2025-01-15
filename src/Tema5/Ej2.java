@@ -6,7 +6,7 @@ public class Ej2 {
     public static int[][] mosca(int[][] posicionM) {
         Random random = new Random();
         posicionM = new int[4][4];
-        int mosca = (random.nextInt(4));;//posicion random de la mosca
+        int mosca = (random.nextInt(5));;//posicion random de la mosca
         //se ingresa la mosca dentro del lugar para que varie la posicion
         // 1 representa la mosca
         posicionM[mosca][mosca] = 1;

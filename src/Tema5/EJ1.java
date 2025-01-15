@@ -1,15 +1,19 @@
 package Tema5;
 
 public class EJ1 {
+
+
     //Un procedimiento que imprima la matriz.//
 
-    public static void cuadra( int[][] matriz) {
+    public static void imprime(int[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-                System.out.print(matriz[i][j]);
+                System.out.print(matriz[i][j] + " ");
             }
+            System.out.println();
         }
     }
+
     public static int maxArray (int [][] max){
         int numMax=max[0][0];
         for (int i=0;i<max.length;i++){

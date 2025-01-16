@@ -27,11 +27,11 @@ public class EJ2 {
             return null;  // Se puede retornar null si no se encuentra la mosca
         }
         //Metodo compruba donde esta mosca
-      public static boolean encontradaMosca(int [][]posicionMosca, int posicionUsuarioH, int posicionUsuarioV ) {
+      public static int encontradaMosca(int [][]posicionMosca, int posicionUsuarioH, int posicionUsuarioV ) {
           if (posicionMosca[posicionUsuarioH][posicionUsuarioV] != 1) {
-              return false;
+              return 5;
           }
-          return true;
+          return 4;
       }
       public static void moverMosca(int[][] tablero,int posicionActual){
             Random random=new Random();
@@ -70,14 +70,9 @@ public class EJ2 {
 
          int userPh=poscionH-1;
          int userPv=posiconV-1;
-
-         int posicion=encontradaMosca(tablero,);
-
+         int posicion=encontradaMosca(tablero,5,7);
 
 
-
-
-     }
-    }
+    }while (poscionH < 1 || poscionH > 4);
     }
 

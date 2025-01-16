@@ -3,8 +3,7 @@ package Tema5;
 import java.util.Scanner;
 
 public class EJ1 {
-
-
+    //Un procedimiento que imprima la matriz.//
 
     //Un procedimiento que imprima la matriz.//
 
@@ -158,3 +157,43 @@ public class EJ1 {
         System.out.println(compruba(matrizNoUnidad));
     }
 }
+      /*  // Pedir al usuario el número que desea contar
+        System.out.print("Introduce el número que deseas contar en la matriz: ");
+        int numeroABuscar = in.nextInt();
+
+        // Llamamos a la función para contar las repeticiones
+        int repeticiones = repetite(matriz, numeroABuscar);
+
+        // Mostrar el resultado
+        System.out.println("El número " + numeroABuscar + " se repite " + repeticiones + " veces.");
+
+    }*/
+
+/*
+        // Declaramos una matriz con tamaño dinámico
+        System.out.println("Ingresa el tamaño del array (cuadrado): ");
+        int tamaño = in.nextInt();
+        int[][] valor = new int[tamaño][tamaño];
+
+        // Llenamos la matriz con valores proporcionados por el usuario
+        System.out.println("Ingresa los valores de tu matriz:");
+        for (int i = 0; i < tamaño; i++) {
+            for (int j = 0; j < tamaño; j++) {
+                System.out.print("Elemento [" + i + "][" + j + "]: ");
+                valor[i][j] = in.nextInt();
+            }
+        }
+        // Pedimos al usuario que ingrese un número para buscar
+        System.out.println("Añade el elemento que quieres buscar: ");
+        int elemento = in.nextInt();
+
+        // Llamamos al método `existeA` para verificar si el elemento está en la matriz
+        if (existeA(valor, elemento)) {
+            System.out.println("El elemento " + elemento + " sí existe en el array.");
+        } else {
+            System.out.println("El elemento " + elemento + " no existe en el array.");
+        }
+
+    }*/
+
+

@@ -56,7 +56,9 @@ public class atrapaMosca {
                 }
             }while (usuario < 1 || usuario > 15);
 
-            int arrayUser = usuario - 1;//es para que el numero que ingrese el usuario se convierta en la posicion del array
+            //es para que el numero que ingrese
+            // el usuario se convierta en la posicion del array
+            int arrayUser = usuario - 1;
             int posicion = busquedadMosca(tablero);
 
             if  (encontrada(tablero, arrayUser) ){

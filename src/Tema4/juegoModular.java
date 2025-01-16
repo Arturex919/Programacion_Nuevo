@@ -183,7 +183,7 @@ public class juegoModular {
                 ataqueCpu = 80;
                 defensaCpu = 100;
                 vidaCpu = 120;
-                System.out.println("Has seleccionado la dificultad Fácil.");
+                System.out.println("Has seleccionado la+ dificultad Fácil.");
             }
             case 2 -> {
                 velocidadCpu = 95;

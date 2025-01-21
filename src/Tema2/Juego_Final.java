@@ -558,11 +558,11 @@ public class Juego_Final {
                 } while (!caracteristica_correctas);
 
                 System.out.println("FELICIDADES");
-                System.out.println("");
+                System.out.println();
                 System.out.println("Su personaje tiene un total de: " + jugador_1 + "P");
-                System.out.println("");
+                System.out.println();
                 System.out.println("Listo Empecemos el juego");
-                System.out.println("");
+                System.out.println();
                 //En este caso, !salir indica que el ciclo continua ejecutándose mientras salir sea
                 // false. Este while es principal  ya que con este podemos hacer el menú en el que el jugador puede
                 // hacer varias acciones como:
@@ -640,7 +640,7 @@ public class Juego_Final {
                             }
                         }
                         case 3 -> {
-                            System.out.println("");
+                            System.out.println();
                             System.out.println("Turno del Jugador 2");
                             System.out.println("añada los atributos del Jugador 2 ");
                             int jugador_2, velocidad_2 = 0, ataque_2 = 0, defensa_2 = 0, lifepoint_2 = 0;
@@ -842,11 +842,11 @@ public class Juego_Final {
 
                             } while (!caracteristica_correctas2);
                             System.out.println("FELICIDADES");
-                            System.out.println("");
+                            System.out.println();
                             System.out.println("Su personaje tiene un total de: " + jugador_2 + "P");
-                            System.out.println("");
+                            System.out.println();
                             System.out.println("Listo Empecemos el juego");
-                            System.out.println("");
+                            System.out.println();
                             while (!salir) {
                                 System.out.println("¿Qué deseas hacer ahora?");
                                 System.out.println("1. Ver atributos del personaje");
@@ -926,7 +926,7 @@ public class Juego_Final {
                                                 "#░█▀▄░░█░░█▀▀░█░█░▀▄▀░█▀▀░█░█░░█░░█░█░█░█░▀▀█░░░█▀█░█░░░░░░░█░█░█░█▀▀░█░█░█░█#\n" +
                                                 "#░▀▀░░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░░░▀░▀░▀▀▀░░░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀#\n" +
                                                 "##############################################################################");
-                                        System.out.println("");
+                                        System.out.println();
                                         System.out.println("CARACTERISTICA DE CADA JUGADOR");
                                         System.out.println("=====================================================");
                                         System.out.println("JUGADOR 1");
@@ -934,14 +934,14 @@ public class Juego_Final {
                                         System.out.println("⚔️" + "Ataque:" + ataque + "P");
                                         System.out.println("🛡️" + "Defensa:" + defensa + "P");
                                         System.out.println("❤️" + "Vida:" + lifepoint + "P");
-                                        System.out.println("");
+                                        System.out.println();
                                         System.out.println("=====================================================");
                                         System.out.println("JUGADOR 2");
                                         System.out.println("⚡" + "Velocidad:" + velocidad_2 + "P");
                                         System.out.println("⚔️" + "Ataque:" + ataque_2 + "P");
                                         System.out.println("🛡️" + "Defensa:" + defensa_2 + "P");
                                         System.out.println("❤️" + "Vida:" + lifepoint_2 + "P");
-                                        System.out.println("");
+                                        System.out.println();
                                         // si creamos una ronda para que sea el contador//
                                         // creamos un booleano que nos detrminara si acaba o no el juego//
                                         int danio = 0;
@@ -963,8 +963,8 @@ public class Juego_Final {
                                                 while (fin_del_juego) {
                                                     System.out.println("=================================================");
                                                     System.out.println("----------Ronda--" + ronda + "--------");
-                                                    System.out.println("");
-                                                    System.out.println("");
+                                                    System.out.println();
+                                                    System.out.println();
                                                     System.out.print("Vida Player 1: [");
                                                     int Barra = Math.max(1,(lifepoint * 20) / 100); // Longitud proporcional de la barra de vida
                                                     for (int i = 0; i < 20; i++) {
@@ -975,9 +975,9 @@ public class Juego_Final {
                                                         }
                                                     }
                                                     System.out.println("] " + lifepoint+"%");
-                                                    System.out.println("");
+                                                    System.out.println();
 
-                                                    System.out.println("");
+                                                    System.out.println();
                                                     System.out.print("Vida Player 2: [");
                                                     int Barra2 = Math.max(1,(lifepoint * 20) / 100); // Longitud proporcional de la barra de vida
                                                     for (int i = 0; i < 20; i++) {
@@ -988,7 +988,7 @@ public class Juego_Final {
                                                         }
                                                     }
                                                     System.out.println("] " + lifepoint_2+"%");
-                                                    System.out.println("");
+                                                    System.out.println();
 
 
                                                     System.out.println("Player 1:");
@@ -1302,9 +1302,9 @@ public class Juego_Final {
                                                             }
                                                         }
                                                         System.out.println("] " + lifepoint);
-                                                        System.out.println("");
+                                                        System.out.println();
 
-                                                        System.out.println("");
+                                                        System.out.println();
                                                         System.out.print("Vida Player 2: [");
                                                         Barra2 = (lifepoint_2 * 20) / 100;
                                                         for (int i = 0; i < 20; i++) {
@@ -1315,10 +1315,10 @@ public class Juego_Final {
                                                             }
                                                         }
                                                         System.out.println("] " + lifepoint_2);
-                                                        System.out.println("");
+                                                        System.out.println();
 
                                                         System.out.println("Player 2:");
-                                                        System.out.println("");
+                                                        System.out.println();
                                                         System.out.println("- QUE DESEAS HACER -");
                                                         System.out.println("1.Atacar");
                                                         System.out.println("2.Defensa");
@@ -1367,7 +1367,7 @@ public class Juego_Final {
                                                                         danio = ataque - (defensa_2 / 4);
                                                                         if (critico) {
                                                                             System.out.println("¡Crítico!");
-                                                                            danio = (int) (danio * 1);
+                                                                            danio = danio;
                                                                         }
                                                                         total_danio = Math.max(15, Math.min(danio + puntosvida, 25));
                                                                         lifepoint -= total_danio;
@@ -1524,7 +1524,7 @@ public class Juego_Final {
                                                                     }
                                                                     case "NO" -> {
                                                                         System.out.println("El jugador no hizo ningun cambio");
-                                                                        System.out.println("");
+                                                                        System.out.println();
                                                                         System.out.println("El jugador uso defensa");
                                                                         int vidaPerdida2 = (int) (lifepoint * 0.05);
                                                                         lifepoint_2 -= vidaPerdida2;

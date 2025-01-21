@@ -9,8 +9,9 @@ public class Tema2_EJ26 {
         System.out.println("ingrese un numero");
         num = in.nextInt();
         for (int i = 2; i < num; i++) {
-            if (num%i==0) {
+            if (num % i == 0) {
                 esPrimo = false;
+                break;
             }
         }
         if (esPrimo){

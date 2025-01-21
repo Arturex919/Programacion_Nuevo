@@ -105,7 +105,7 @@ public class EJ10 {
                 case 'f' -> {
                     for (int num = 1; num <= 10; num++)
                         EJ6.mostrarTabla(num);
-                    System.out.println("");
+                    System.out.println();
                 }
                 case 'g' -> {
                     int num;

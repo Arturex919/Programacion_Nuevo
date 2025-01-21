@@ -1,4 +1,4 @@
-package Tema4;
+package Arrays;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -54,7 +54,7 @@ public class busca_minas {
         minas(tablero, pista); // Inicializar minas y pistas
         do {
             busca_minas.tablero(tablero, encontrada);
-            System.out.println("");
+            System.out.println();
             System.out.println("selecciona una casilla del 0-19");
                  posicion = in.nextInt();
             //para evitar que el usuario inserte varias veces el mismo número

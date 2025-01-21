@@ -1,6 +1,4 @@
-package Tema4;
-
-import Tema4.personajes;
+package Arrays;
 
 import java.util.Random;
 import java.util.Scanner;

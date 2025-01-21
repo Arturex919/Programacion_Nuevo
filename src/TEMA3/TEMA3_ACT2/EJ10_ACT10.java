@@ -52,7 +52,7 @@ public class EJ10_ACT10 {
                                 EJ3.validRadius(radio);
                                 System.out.println("El area del ciruclo es: " + EJ3.calculateCircleArea(radio));
                                 System.out.println("El perimetro de su circulo es:" + EJ3.calculateCircleArea(radio));
-                                System.out.println("");
+                                System.out.println();
                             }
                             case 2 -> {
                                 System.out.println("Ingrese un valor");

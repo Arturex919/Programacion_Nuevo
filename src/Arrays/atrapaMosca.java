@@ -1,4 +1,4 @@
-package Tema4;
+package Arrays;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -21,10 +21,7 @@ public class atrapaMosca {
     }
 
     public static boolean encontrada(int[] lugar, int usuario) {
-        if (lugar[usuario] != 1) {
-            return false;
-        }
-        return true;
+        return lugar[usuario] == 1;
     }
 
     public static void moverMosca(int[] tablero, int posicionActual) {

@@ -1,4 +1,4 @@
-package Tema4;
+package Arrays;
 
 public class personajes {
     public static void bienvenida(){
@@ -79,8 +79,8 @@ public class personajes {
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⡀⣿⠁⠀⠀⠀⠀⠀⠀⠀⢣⢸⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⠀⠀⠀⠀⣀⡞⠁⢿⣄⠀⠀⠀⠀⠀⠀⢀⠞⠘⢻⢆⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⠀⢰⣾⣻⣿⣠⣾⣤⣘⡄⠀⠀⠀⠀⠀⣾⣶⣷⣼⣿⣾⣝⣲⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
-        System.out.println("");
-        System.out.println("");
+        System.out.println();
+        System.out.println();
 
     }
     public static void mamado(){
@@ -117,8 +117,8 @@ public class personajes {
                 "⠀⠀⠀⠀⠀⠀⠙⢿⣿⡇⠀⠀⠀⠀⠀⢠⣿⠟⠇⠀⠈⠑⢦⣿⠿⠿⠿⠿⠶⢀⢀⣸⠿⣶⣦⣠⡖⠀⠀⠀⠀⠀⠀⠀⢀⣿⠀⠀⠀⠀⠀⠀⡿⠀⠀⠀⠀⠀⠀⠀⠀⠘⢻⡆\n" +
                 "⠀⠀⠀⠀⠀⠀⠀⠀⣼⡇⠀⠀⠀⠀⠀⣸⡗⠀⠀⠀⠀⠀⠀⠙⠷⡄⣀⠀⠀⠻⠟⠃⠀⠀⠀⠀⠤⠀⠀⠀⠀⠀⠀⠀⣾⡟⠀⠀⠀⠀⠀⢰⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇\n" +
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠹⠇⠀⠀⠀⠀⠀⣸⣿⠠⢰⣶⠄⠀⠀⠀⢀⣀⠀⢠⠀⠀⢠⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣙⣿⠁⠀⠀⠀⠀⠀⣸⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠇");
-        System.out.println("");
-        System.out.println("");
+        System.out.println();
+        System.out.println();
 
     }
     public static void Kongs(){
@@ -158,8 +158,8 @@ public class personajes {
                 "─────▀██▄░░░▀▀▀▀▀▀▀▀▀░░░▄██▀─────\n" +
                 "────────▀██▄▄░░░░░░░▄▄██▀────────\n" +
                 "───────────▀▀███████▀▀───────────");
-        System.out.println("");
-        System.out.println("");
+        System.out.println();
+        System.out.println();
 
     }
     public static void capo(){
@@ -184,8 +184,8 @@ public class personajes {
                 "⬜⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜\n" +
                 "⬜⬜⬜⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛⬜⬜⬜\n" +
                 "⬜⬜⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜");
-        System.out.println("");
-        System.out.println("");
+        System.out.println();
+        System.out.println();
 
 
     }
@@ -218,8 +218,8 @@ public class personajes {
                 "<!-- ██╔═══╝ ██╔══██╗██║   ██║ ██╔██╗ ██║██║╚██╔╝██║██╔══██║    ██╗██║  ██║             -->\n" +
                 "<!-- ██║     ██║  ██║╚██████╔╝██╔╝ ██╗██║██║ ╚═╝ ██║██║  ██║    ╚═╝██████╔╝             -->\n" +
                 "<!-- ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝     ╚═╝╚═╝  ╚═╝       ╚═════╝              -->");
-        System.out.println("");
-        System.out.println("");
+        System.out.println();
+        System.out.println();
         System.out.println("+============================================================================+\n" +
                 "|░█░█░█▀█░█▀▀░▀█▀░█▀█░░░█░░░█▀█░░░█▀█░█▀▄░█▀█░█░█░▀█▀░█▄█░█▀█░█▀█░█▀█░█▀█░█▀█|\n" +
                 "|░█▀█░█▀█░▀▀█░░█░░█▀█░░░█░░░█▀█░░░█▀▀░█▀▄░█░█░▄▀▄░░█░░█░█░█▀█░█▀█░█▀█░█▀█░█▀█|\n" +
@@ -255,8 +255,8 @@ public class personajes {
                 "<!--           ███████╗                                                             -->\n" +
                 "<!--           ╚══════╝           ");
 
-        System.out.println("");
-        System.out.println("");
+        System.out.println();
+        System.out.println();
         System.out.println("+============================================================================+\n" +
                 "|░█░█░█▀█░█▀▀░▀█▀░█▀█░░░█░░░█▀█░░░█▀█░█▀▄░█▀█░█░█░▀█▀░█▄█░█▀█░█▀█░█▀█░█▀█░█▀█|\n" +
                 "|░█▀█░█▀█░▀▀█░░█░░█▀█░░░█░░░█▀█░░░█▀▀░█▀▄░█░█░▄▀▄░░█░░█░█░█▀█░█▀█░█▀█░█▀█░█▀█|\n" +

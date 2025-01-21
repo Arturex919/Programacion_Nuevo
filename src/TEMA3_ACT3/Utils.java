@@ -1,6 +1,6 @@
 package TEMA3_ACT3;
 
-/*
+
 import TEMA3.TEMA3_ACT2.MyMath;
 
 import java.util.Scanner;
@@ -86,7 +86,6 @@ public class Utils {
             System.out.println("Introduce un numero");
             numero = in.nextInt();
             System.out.println("Ingrese la letra del DNI");
-            letra=in.
             if (numero >= 1000000 && numero <= 99999999) {
 
                 System.out.println("Su NIF es :");
@@ -104,23 +103,20 @@ public class Utils {
         Scanner in = new Scanner(System.in);
         int numero;
 
-/* DNI
-public static void main(String[] args) {
-    Scanner in = new Scanner(System.in);
-    int numero;
-    do {
-        System.out.println("Introduce un numero");
-         numero = in.nextInt();
-        if (numero >=1000000 && numero<=99999999) {
+            do {
+                System.out.println("Introduce un numero");
+                numero = in.nextInt();
+                if (numero >= 1000000 && numero <= 99999999) {
 
-            System.out.println("Su NIF es :"+getNIF(numero));
+                    System.out.println("Su NIF es :" + getNIF(numero));
 
 //        } else if (numero >8 ) {
 //            System.out.println("ingrese un numero valido");
-        }else {
-            System.out.println("ingrese un numero valido");
+                } else {
+                    System.out.println("ingrese un numero valido");
+                }
+            }
+            while (numero <= 1000000 || numero >= 99999999);
+
         }
     }
-    while (numero <=1000000 || numero>=99999999);
-
-*/

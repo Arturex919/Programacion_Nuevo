@@ -19,7 +19,7 @@ public class EJ6 {
       for (int num=1;num<=10;num++)
         //llamas a la funcion tabla para que se muestre//
         mostrarTabla(num);
-        System.out.println("");
+        System.out.println();
 
     }
 }

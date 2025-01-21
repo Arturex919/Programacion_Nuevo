@@ -14,6 +14,7 @@ public class Tema2_EJ27 {
             for (int i = 2; i < num; i++) {
                 if (num % i == 0) {
                     esPrimo = false;
+                    break;
                 }
             }
         if (esPrimo){

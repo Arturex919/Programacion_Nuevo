@@ -110,23 +110,23 @@ public class MyString {
                     o++;
                 }
                 case 'u' -> {
-                u++;
+                    u++;
                 }
 
             }
         }
         //%d numero entero %s STRING %n Salto de linea
-        System.out.printf("a %d %s%n", a, "*".repeat(a));
-        System.out.printf("e %d %s%n", e, "*".repeat(e));
-        System.out.printf("i %d %s%n", i, "*".repeat(i));
-        System.out.printf("o %d %s%n", o, "*".repeat(o));
-        System.out.printf("u %d %s%n", u, "*".repeat(u));
+        System.out.println("a " + a + " " + "*".repeat(a));
+        System.out.println("e " + e + " " + "*".repeat(e));
+        System.out.println("i" + i + " " + "*".repeat(i));
+        System.out.println("o " + o + " " + "*".repeat(o));
+        System.out.println("u " + u + " " + "*".repeat(u));
 
     }
 
     public static void main(String[] args) {
         String palabra = "la vaca hace mu";
-      histograma(palabra);
+        histograma(palabra);
     }
 }
 

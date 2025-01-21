@@ -41,7 +41,7 @@ public class peso {
                         salir = true;
                         System.out.println("has salido del juego");
                     } else {
-                        System.out.println("");
+                        System.out.println();
                         System.out.println("Ingrese la ataque del jugador 1");
                         ataque = in.nextInt();
                         while (ataque > 200 || ataque < 1) {
@@ -59,7 +59,7 @@ public class peso {
                         salir = true;
                         System.out.println("has salido del juego");
                     } else {
-                        System.out.println("");
+                        System.out.println();
                         System.out.println("ingrese la defensa del jugador 1");
                         defensa = in.nextInt();
                         while (defensa > 200 || defensa < 1) {
@@ -77,7 +77,7 @@ public class peso {
                         salir = true;
                         System.out.println("has salido del juego");
                     } else {
-                        System.out.println("");
+                        System.out.println();
                         System.out.println("ingrese la vida del jugador 1");
                         lifepoint = in.nextInt();
                         while (lifepoint > 200 || lifepoint < 1) {

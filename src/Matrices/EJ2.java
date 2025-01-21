@@ -1,9 +1,10 @@
-package Tema5;
+package Matrices;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class Ej2 {
+public class EJ2 {
+
     //Le das el valor ramdon a la mosca
     public static int[][] mosca(int[][] posicionM) {
         Random random = new Random();
@@ -34,10 +35,7 @@ public class Ej2 {
 
     //Metodo compruba donde esta mosca
     public static boolean encontradaMosca(int[][] posicionMosca, int posicionUsuarioH, int posicionUsuarioV) {
-        if (posicionMosca[posicionUsuarioH][posicionUsuarioV] == 1) {
-            return true;
-        }
-        return false;
+        return posicionMosca[posicionUsuarioH][posicionUsuarioV] == 1;
     }
 
     public static void moverMosca(int[][] tablero, int[] posicionActual) {

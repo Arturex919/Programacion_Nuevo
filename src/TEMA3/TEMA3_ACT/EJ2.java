@@ -34,12 +34,9 @@ public class EJ2 {
         //se crea un bool resul para comprobar la edad si true o false//
         //boolean result = false;
         //si es mayor es true//
-        if (age >= 18) {
-            //result = true;
-            return true;
-        }
+        //result = true;
+        return age >= 18;
         //hacemos el return a la variable return
-        return false;
     }
     public static int numberSign(int numero){
         if (numero>0){

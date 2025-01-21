@@ -1,6 +1,5 @@
-package Tema4;
+package Arrays;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -119,7 +118,7 @@ public class busca_Parejas {
                 // en caso de que no encuentre aparece
                 System.out.println("Intenta de nuevo");
                 for (int i = 0; i < 1; i++) {
-                    System.out.println("");
+                    System.out.println();
                 }
             }
             if (parejas == 10) {

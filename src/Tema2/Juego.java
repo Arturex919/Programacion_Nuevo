@@ -173,7 +173,7 @@ public class Juego {public static void main(String[] args) {
                                     defensa_2 = in.nextInt();
                                 }
 
-                                System.out.println("");
+                                System.out.println();
                                 System.out.println("ingrese la vida del jugador 2");
                                 lifepoint_2 = in.nextInt();
                                 while (lifepoint_2 > 200 || lifepoint_2 < 1) {
@@ -258,8 +258,8 @@ public class Juego {public static void main(String[] args) {
                                 System.out.println("Ataque:" + ataque + "P");
                                 System.out.println("Defensa:" + defensa + "P");
                                 System.out.println("Puntos de vida:" + lifepoint + "P");
-                                System.out.println("");
-                                System.out.println("");
+                                System.out.println();
+                                System.out.println();
                                 System.out.println("=====================================================");
                                 System.out.println("JUGADOR 2");
                                 System.out.println("Velocidad:" + velocidad_2 + "P");
@@ -267,9 +267,9 @@ public class Juego {public static void main(String[] args) {
                                 System.out.println("Defensa:" + defensa_2 + "P");
                                 System.out.println("Puntos de vida:" + lifepoint_2 + "P");
                                 System.out.println("habilidades:Golpe Cañon,Lanzallamas");
-                                System.out.println("");
-                                System.out.println("");
-                                System.out.println("");
+                                System.out.println();
+                                System.out.println();
+                                System.out.println();
                                 //creamos una ronda para que esta se vaya cambiando a medida de que se vaya avanzando el
                                 //juego para que cambien su valores en si//
 

@@ -1,4 +1,4 @@
-package Tema5;
+package Matrices;
 
 import java.util.Scanner;
 

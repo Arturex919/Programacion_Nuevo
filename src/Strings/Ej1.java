@@ -1,32 +1,50 @@
 package Strings;
 
 public class Ej1 {
+    //Una función que reciba una cadena y devuelva la palabra de
+    //mayor longitud
     public static String masGrande(String palabra) {
-        String[] palabra1 = palabra.split("\\s+");//nos divide por espacios en blanco
+        String[] palabraBusqueda = palabra.split("\\s+");//nos divide por espacios en blanco
         String palabraLarga = ""; //busca la palabra larga ;
-        for (int i = 0; i < palabra.length(); i++) {
-            if (palabra1[i].length() > palabraLarga.length()) {
-                palabraLarga = palabra1[i];
+
+        //(palabraBusquedad)usas la palabra donde guardas el array la palabra mas grande
+        for (int i = 0; i < palabraBusqueda.length; i++) {
+
+            if (palabraBusqueda[i].length() > palabraLarga.length()) {
+                palabraLarga = palabraBusqueda[i];
             }
         }
         return palabraLarga;
-
     }
-/* Revisar
-String[] masLarga = palabra.split("\\s+");//se en carga de dividir por espacios en blancos
-        String buscaPalabra = ""; //busca la palabra mas larga
 
-        for (int i = 0; i < palabra.length(); i++) {
-            if (masLarga[i].length() > buscaPalabra.length()) {
-                buscaPalabra = masLarga[i];
-            }
+    //Una función que reciba dos cadenas y devuelva el número de
+    //veces que la segunda cadena está incluida en la primera.
+    public static int cadena(String palabra, String palabra2) {
+        int cont = 0;
+        int repite = 0;
+
+        while ((repite = palabra.indexOf(palabra2, repite)) != -1) {
+            cont++;
+            cont += palabra2.length();
         }
-        return buscaPalabra;
+        return cont;
     }
-*/
+
     public static void main(String[] args) {
-        String texto = "El lenguaje de programación Java es increíble";
-        String resultado = masGrande(texto);
-        System.out.println("La palabra de mayor longitud es: \"" + resultado + "\"");
+        String palabra = "hola pepe vas a jugar pelota ";
+        String text = masGrande(palabra);
+        System.out.println(text);
     }
 }
+    /* Revisar
+    String[] masLarga = palabra.split("\\s+");//se en carga de dividir por espacios en blancos
+            String buscaPalabra = ""; //busca la palabra mas larga
+
+            for (int i = 0; i < palabra.length(); i++) {
+                if (masLarga[i].length() > buscaPalabra.length()) {
+                    buscaPalabra = masLarga[i];
+                }
+            }
+            return buscaPalabra;
+        }
+    */

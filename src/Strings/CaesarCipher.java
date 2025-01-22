@@ -62,7 +62,7 @@ public class CaesarCipher {
     }
 
         public static void main(String[] args) {
-        String text = "hola";
+        String text = "hola ";
         String pepe=encrypt(text);
         String pepe2= decrypt(pepe);
         System.out.println(pepe);

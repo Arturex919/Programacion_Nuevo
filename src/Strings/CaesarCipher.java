@@ -1,5 +1,7 @@
 package Strings;
 
+import java.util.Scanner;
+
 // Crea una clase CaesarCipher para implementar el cifrado de Julio César con
 //tres funciones: encrypt (cifrar), decrypt (descifrar) y main. Julio César inventó
 //un cifrado para evitar que los mensajes pudieran ser leídos por cualquier
@@ -11,11 +13,11 @@ package Strings;
 //reemplaza por 0.
 //- El resto de caracteres no se reemplazan.
 public class CaesarCipher {
-    public static String encrypt(String cifrado) {// el requisito va a un sting pq vas a coger llas plaabra de ahi
+    public static String encrypt(String cifrado) {// el requisito va a un sting pq vas a coger las plaabra de ahi
         char[] caracters = cifrado.toUpperCase().toCharArray();//crear el char para que la pabra se guarde y las separas en por letra
         for (int i = 0; i < caracters.length; i++) {//el for recorre la palabra y la separa
             char letra = caracters[i];//la guarda en la variable
-            if (letra > 'A' && letra < 'Z' || letra > 'a' && letra < 'z') {//nos convierte en mayuscula o min
+            if (letra >= 'A' && letra <= 'Z') {//nos convierte en mayuscula o min
                 if (letra == 'Z') {
                     caracters[i] = 'A';//Si es 'Z', se reemplaza con 'A'
                 } else {
@@ -42,7 +44,7 @@ public class CaesarCipher {
             // Si es una letra (A-Z)
             if (letra >= 'A' && letra <= 'Z') {
                 if (letra == 'A') {
-                    caracters2[i] = 'Z'; // Si es 'A', se reemplaza con 'Z'
+                    caracters2[i] = 'Z'; // Si es 'z', se reemplaza con 'a'
                 } else {
                     caracters2[i] = (char) (letra - 1); // Si no es 'A', se retrocede a la letra anterior
                 }
@@ -57,16 +59,19 @@ public class CaesarCipher {
             }
             // Otros caracteres permanecen igual
         }
-
-        return new String(caracters2);
+        String descrifadoF= new String(caracters2);
+        return descrifadoF;
     }
 
         public static void main(String[] args) {
-        String text = "hola ";
-        String pepe=encrypt(text);
-        String pepe2= decrypt(pepe);
-        System.out.println(pepe);
-        System.out.println(pepe2);
+            Scanner in=new Scanner(System.in);
+        String text;
+            System.out.println("ingresa la palabra para encriptar");
+            text= in.next();
+            System.out.println("La palabra original es: "+text);
+            System.out.println("La palabra encriptada es: "+encrypt(text));
+            System.out.println("La palabra desencriptada es: "+decrypt(encrypt(text)));
+
     }
 }
 

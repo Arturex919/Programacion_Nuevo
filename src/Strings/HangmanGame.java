@@ -42,61 +42,92 @@ public class HangmanGame {
         }
     }
 
+    public static void dibujo(int intentoFallido) {
+        String[] ahorcado = new String[]{
+                "  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n=========",
+                "  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========",
+                "  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========",
+                "  +---+\n  |   |\n  O   |\n /|   |\n      |\n      |\n=========",
+                "  +---+\n  |   |\n  O   |\n  |   |\n      |\n      |\n=========",
+                "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========",
+                "  +---+\n  |   |\n      |\n      |\n      |\n      |\n========="
+        };
+        System.out.println(ahorcado[6 - intentoFallido]);
+    }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        String palabra;
+        String palabra = "";
         char letra;
         boolean continua = false;
         boolean palabraValida = false;
         int intentos = 6;
+        int opcion;
+do {
+    System.out.println("Desea jugar 1) Si  2)No");
+    opcion = in.nextInt();
+            switch (opcion) {
+                case 1 -> {
+                    System.out.println("BIENVENIDO AL JUEGO DEL AHORCADO");
 
-        while (!palabraValida) {//creas el bucle para añada la palabra que es valida
-            System.out.println("Ingresa una palabra para adivinar");
-            palabra = in.next();
-            palabraValida = true;//si la palabra es verdad
+                    while (!palabraValida) {//creas el bucle para añada la palabra que es valida
+                        System.out.println("Ingresa una palabra para adivinar");
+                        palabra = in.next();
+                        palabraValida = true;//si la palabra es verdad
 
-            for (int i = 0; i < palabra.length(); i++) {//leera el tamaño de la palabra
-                if (!Character.isLetter(palabra.charAt(i))) {//si la palabra es distinto al caracter
-                    palabraValida = false;
+                        for (int i = 0; i < palabra.length(); i++) {//leera el tamaño de la palabra
+                            if (!Character.isLetter(palabra.charAt(i))) {//si la palabra es distinto al caracter
+                                palabraValida = false;
+                            }
+                        }
+                        if (!palabraValida) {//si no es una palabra sera false
+                            System.out.println("palabra no valida,añade una nueva");
+                        }
+                    }
+
+                    blanco();
+                    char[] palabraAdivinar = oculta(palabra);
+
+                    do {
+                        dibujo(intentos);
+                        System.out.println("");
+                        System.out.println(palabraAdivinar);
+                        System.out.println("");// Muestra el progreso actual
+                        System.out.println("Inserta una letra:");
+                        letra = in.next().charAt(0);
+
+                        if (palabraUser(palabra, letra)) {
+                            System.out.println("haz adivinado la palabra");
+                            muestra(palabra, palabraAdivinar, letra);
+                        } else {
+                            System.out.println("incorrecto sigue intentadolo");
+                            intentos--;
+                            System.out.println("Te quedan solo " + intentos + " intentos ");
+                        }//transformas de char a string con  valueOf y lo compara con la plabra
+                        if (String.valueOf(palabraAdivinar).equals(palabra)) {
+                            continua = true;
+                            System.out.println("Haz ganadoooo");
+                        } else {
+                            System.out.println("valor no válido. Solo puedes ingresar una letra.");
+                        }
+                    } while (intentos > 0 && !continua);
+
+                    // Verificar si el jugador perdió
+                    if (!continua) {
+                        dibujo(0);
+                        System.out.println("Te has quedado sin intentos. La palabra era: " + palabra);
+                    }
+                }
+                case 2 -> {
+                    System.out.println("Adiossss");
+                }
+                default -> {
+                    System.out.println("opcion no valida");
                 }
             }
-            if (!palabraValida) {//si no es una palabra sera false
-                System.out.println("palabra no valida,añade una nueva");
-            }
-        }
-
-            blanco();
-
-            char[] palabraAdivinar = oculta(palabra);
-
-            do {
-                System.out.println(palabraAdivinar);
-                System.out.println("inserta una letra");
-                letra = in.next().charAt(0);
-
-                if (palabraUser(palabra, letra)) {
-                    System.out.println("haz adivina la letra: " + letra);
-                    muestra(palabra, palabraAdivinar, letra);
-                } else {
-                    System.out.println("incorrecto sigue intentadolo");
-                    intentos--;
-                    System.out.println("Te quedan solo " + intentos + " intentos ");
-                }
-                if (String.valueOf(palabraValida).equals(palabra)) {
-                    continua = true;
-                    System.out.println("Haz ganado");
-                }
-            } while (intentos > 0 && !continua);
-
-            if (!continua) {
-                System.out.println("te has quedado sin intentos,la palabra era : " + palabra);
-            }
-        }
-
-
-
-        }
+        }while (opcion!=2);
     }
+}
 
 
 

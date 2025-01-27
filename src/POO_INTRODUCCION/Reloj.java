@@ -1,7 +1,5 @@
 package POO_INTRODUCCION;
 
-import javax.xml.transform.Source;
-
 public class Reloj {
     private int hora;
     private int min;
@@ -58,7 +56,7 @@ public class Reloj {
     }
 
     public void setSeg(int seg) {
-        if (seg >= 0 && seg <= 60) {
+        if (seg >= 0 && seg < 60) {
             this.seg = seg;
         } else {
             System.out.println("Segundos inválido. Debe estar entre 0 y 59.");
@@ -66,23 +64,34 @@ public class Reloj {
     }
 
     public void setFormato(boolean formato) {
+
         this.formato = formato;
     }
-
     public void mostrarHora() {
-        if (formato) {
-            int hora12;
-            if (hora==0 || hora==12){
-                hora12=12;
-            }else {
-                hora12=hora%12;
-            }
-            System.out.println("La hora es: " + hora12 + " : " + min + " : " + seg + " " +" AM");
+        if (formato) { // Formato 12 horas
+            String amPm = (hora < 12) ? "AM" : "PM";
+            int hora12 = (hora % 12 == 0) ? 12 : hora % 12;
+            System.out.printf("La hora es: %02d:%02d:%02d %s%n", hora12, min, seg, amPm);
         } else { // Formato 24 horas
-            System.out.println("La hora es: " + hora + " : " + min + " : " + seg+" PM");
+            System.out.printf("La hora es: %02d:%02d:%02d%n", hora, min, seg);
+        }
+    }
+    public String toString() {
+        if (formato) { // Formato 12 horas
+            String amPm = (hora < 12) ? "AM" : "PM";
+            int hora12 = (hora % 12 == 0) ? 12 : hora % 12;
+            return String.format("La hora es: %02d:%02d:%02d %s", hora12, min, seg, amPm);
+        } else {
+            return String.format("La hora es: %02d:%02d:%02d", hora, min, seg);
         }
     }
 }
+
+
+
+
+
+
 
 
 

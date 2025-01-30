@@ -67,7 +67,7 @@ public class CaesarCipher {
             Scanner in=new Scanner(System.in);
         String text;
             System.out.println("ingresa la palabra para encriptar");
-            text= in.next();
+            text= in.nextLine();
             System.out.println("La palabra original es: "+text);
             System.out.println("La palabra encriptada es: "+encrypt(text));
             System.out.println("La palabra desencriptada es: "+decrypt(encrypt(text)));

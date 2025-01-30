@@ -42,6 +42,7 @@ public class Lingo {
                 }
             }
 
+            //revisar para que sirve este código
             // Identificar letras contenidas pero en posición incorrecta
             for (int i = 0; i < palabra.length(); i++) {
                 if (juego[i] != '*' && palabra.indexOf(intento.charAt(i)) != -1) {

@@ -3,13 +3,20 @@ package POO_INTRODUCCION;
 public class Persona {
     private String name;
     private String apellido;
-    private int dni;
+    private String dni;
     private int edad;
     public static final int MAYOR_EDAD=18;
     public static final int JUBILADO=65;
 
+    public Persona() {
+        this.name = " ";
+        this.edad = 0;
+        this.dni = " ";
+        this.apellido =" ";
+    }
+
     //cons parametro
-    public Persona(int edad, int dni, String apellido, String name) {
+    public Persona( String name,String apellido, String dni,int edad) {
         this.edad = edad;
         this.dni = dni;
         this.apellido = apellido;
@@ -22,10 +29,6 @@ public class Persona {
 
     public String getApellido() {
         return apellido;
-    }
-
-    public int getDni() {
-        return dni;
     }
 
     public int getEdad() {
@@ -43,8 +46,9 @@ public class Persona {
     public void setEdad(int edad) {
         this.edad = edad;
     }
-    public void mostrarDatos(String name, String apellido,int dni,int edad){
-        System.out.println("El nombre y el apellido del usuer es :"+name+apellido+"\n"+
+
+    public void mostrarDatos(String name, String apellido,String dni,int edad){
+        System.out.println("El nombre y el apellido del user es :"+name +"  "+ apellido+"\n"+
                 "El numero de DNI es: "+dni+"\n"+
                 "La edad del user es: "+edad);
     }
@@ -77,14 +81,18 @@ public class Persona {
         }
         return diferencia;
     }
-    public String check(int numero){
-        if (numero < 10000000 || numero > 99999999) {
-            System.out.println("El DNI debe tener 8 dígitos.");
+    public boolean check(String dni){
+   if (dni.length() !=9){//si es disntito a 9 digitos nos dara error
+       System.out.println("Numero invalido,ingresa un numero valido");
+       return false;
+   }
+        for (int i = 0; i < 8; i++) {//recorre los numeros
+            if (!Character.isDigit(dni.charAt(i))){
+                return false;
+            }
         }
-        String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
-    int resto=numero% 23;
-    char letra = letras.charAt(resto);
-        return numero+String.valueOf(letra);
+        char letra=dni.charAt(8);
+        return Character.isLetter(letra);
 }
 
 

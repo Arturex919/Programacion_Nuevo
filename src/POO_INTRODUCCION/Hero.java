@@ -20,11 +20,12 @@ public class Hero {
     public Hero() {
         this.name = " ";
         this.levelUp = 1;
-        this.health = 0;
-        this.maxHealth = 0;
-        this.experience=0;
-        this.attack = 0;
-        this.defense = 0;
+        this.health = 100;  // Establece un valor razonable
+        this.maxHealth = 100; // Establece un valor razonable
+        this.experience = 0;
+        this.attack = 10;  // Valor inicial para el ataque
+        this.defense = 5;  // Valor inicial para la defensa
+
     }
 
     public Hero(String name, int levelUp, int health, int maxHealth, int experience, int attack, int defense) {
@@ -99,7 +100,7 @@ public class Hero {
     //metodos
     public void drinkPotion(){
         int salud=this.health;//guardas tu salud para mostrar
-       this.health=Math.min(health+POTION_HEAL,this.maxHealth);
+       this.health=Math.min(this.health+POTION_HEAL,this.maxHealth);
        int curacion=this.health-salud; //calculas cuanto te curaste
         System.out.println(name+" te has tomado una pocion,te has curado un: "+ curacion +"/"+maxHealth);
            }
@@ -124,7 +125,7 @@ public class Hero {
     public void attack(Hero personaje){
         int daño=Math.max(this.attack-personaje.getDefense(),MIN_DAMAGE);
         //llamas a la variable para que el daño se va aplicar al enemigo
-        personaje.setHealth(getHealth()-daño);
+        personaje.setHealth(personaje.getHealth()-daño);
 
       this.experience+=ATAQUE_EXPERIENCIA;
         System.out.println(name + " ha atacado a " +personaje.getName() + " causando " + daño + " de daño.");
@@ -137,7 +138,7 @@ public class Hero {
         this.defense += 1;
         this.attack +=1;
         this.experience -=LEVELUP_EXPERIENCIA;
-        this.health +=5;
+        this.health = Math.min(this.health + 5, this.maxHealth); // Asegura que la salud no exceda el máximo
         this.levelUp++ ;
         System.out.println(name + " ha subido de nivel! Ahora está en el nivel " + this.levelUp);
         System.out.println("Nuevas estadísticas: Salud: " + this.health + "/" + this.maxHealth + ", Ataque: " + this.attack + ", Defensa: " + this.defense);

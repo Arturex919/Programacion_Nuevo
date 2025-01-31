@@ -50,7 +50,7 @@ public class Lingo {
                 boolean marcado = false;
                 for (int j = 0; j < palabra.length(); j++) {
                     if (intento.charAt(i) == palabra.charAt(j) && !marcas[j] && !marcado) {
-                        juego[i] = 'o';
+                        juego[i] = '*';
                         marcado = true;
                     }
                 }
@@ -98,10 +98,14 @@ public class Lingo {
             String intento = in.next().toLowerCase();
 
             // Validar que la palabra tenga 5 letras
-            if (intento.length() != 5) {
-                System.out.println("La palabra debe tener 5 letras.");
-            }
+            while (intento.length() != 5) {
+                System.out.print("Ingresa una palabra de 5 letras: ");
+                intento = in.next().toLowerCase(); // Convertir la palabra a minúsculas
 
+                if (intento.length() != 5) {
+                    System.out.println("La palabra debe tener 5 letras. Intenta de nuevo.");
+                }
+            }
             // Verificar si adivinó la palabra
             if (intento.equalsIgnoreCase(palabra)) { // Comprueba si adivinó la palabra
                 System.out.println("¡Felicidades! Adivinaste la palabra: " + palabra);

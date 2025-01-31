@@ -78,7 +78,11 @@ public class Hero {
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        if (health>0){
+            this.health=health;
+        }else{
+            this.health=0;
+        }
     }
 
     public void setMaxHealth(int maxHealth) {
@@ -123,23 +127,28 @@ public class Hero {
 
     //defines el el parametro hero para que ataque
     public void attack(Hero personaje){
-        int daño=Math.max(this.attack-personaje.getDefense(),MIN_DAMAGE);
-        //llamas a la variable para que el daño se va aplicar al enemigo
-        personaje.setHealth(personaje.getHealth()-daño);
+        int damage=Math.max(this.attack-personaje.getDefense(),MIN_DAMAGE);
+        //llamas a la variable para que el damage se va aplicar al enemigo
+        personaje.setHealth(personaje.getHealth()-damage);
+
 
       this.experience+=ATAQUE_EXPERIENCIA;
-        System.out.println(name + " ha atacado a " +personaje.getName() + " causando " + daño + " de daño.");
+        System.out.println(name + " ha atacado a " +personaje.getName() + " causando " + damage + " de damage.");
 
         if (experience >= LEVELUP_EXPERIENCIA){
             this.levelUpHero();
         }
     }
     public void levelUpHero(){
-        this.defense += 1;
-        this.attack +=1;
-        this.experience -=LEVELUP_EXPERIENCIA;
-        this.health = Math.min(this.health + 5, this.maxHealth); // Asegura que la salud no exceda el máximo
-        this.levelUp++ ;
+        if (this.levelUp>=50){
+            System.out.println("Ya alcanzaste el nivel maximo");
+        }else {
+            this.defense += 1;
+            this.attack += 1;
+            this.experience -= LEVELUP_EXPERIENCIA;
+            this.health = Math.min(this.health + 5, this.maxHealth); // Asegura que la salud no exceda el máximo
+            this.levelUp++;
+        }
         System.out.println(name + " ha subido de nivel! Ahora está en el nivel " + this.levelUp);
         System.out.println("Nuevas estadísticas: Salud: " + this.health + "/" + this.maxHealth + ", Ataque: " + this.attack + ", Defensa: " + this.defense);
     }

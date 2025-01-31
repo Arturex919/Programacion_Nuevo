@@ -26,39 +26,39 @@ public class Lingo {
     ¡Congratulations!
      */
     public static String palabraUser(String palabra, String intento) {
-            char[] juego = new char[5];
-            boolean[] marcas = new boolean[5];
+        char[] juego = new char[5];
+        boolean[] marcas = new boolean[5];
 
-            // Inicializar pista con '-'
-            for (int i = 0; i < juego.length; i++) {
-                juego[i] = '_';
+        // Inicializar pista con '-'
+        for (int i = 0; i < juego.length; i++) {
+            juego[i] = '_';
+        }
+
+        // Identificar letras correctas en la posición correcta
+        for (int i = 0; i < palabra.length(); i++) {
+            if (palabra.charAt(i) == intento.charAt(i)) {
+                juego[i] = intento.charAt(i);
+                marcas[i] = true;
             }
+        }
 
-            // Identificar letras correctas en la posición correcta
-            for (int i = 0; i < palabra.length(); i++) {
-                if (palabra.charAt(i) == intento.charAt(i)) {
-                    juego[i] = '*';
-                    marcas[i] = true;
-                }
-            }
-
-            //revisar para que sirve este código
-            // Identificar letras contenidas pero en posición incorrecta
-            for (int i = 0; i < palabra.length(); i++) {
-                if (juego[i] != '*' && palabra.indexOf(intento.charAt(i)) != -1) {
-                    // Solo marcar la letra si aún no está marcada
-                    boolean marcado = false;
-                    for (int j = 0; j < palabra.length(); j++) {
-                        if (intento.charAt(i) == palabra.charAt(j) && !marcas[j] && !marcado) {
-                            juego[i] = 'o';
-                            marcado = true;
-                        }
+        //revisar para que sirve este código
+        // Identificar letras contenidas pero en posición incorrecta
+        for (int i = 0; i < palabra.length(); i++) {
+            if (juego[i] != '*' && palabra.indexOf(intento.charAt(i)) != -1) {
+                // Solo marcar la letra si aún no está marcada
+                boolean marcado = false;
+                for (int j = 0; j < palabra.length(); j++) {
+                    if (intento.charAt(i) == palabra.charAt(j) && !marcas[j] && !marcado) {
+                        juego[i] = 'o';
+                        marcado = true;
                     }
                 }
             }
+        }
 
-            String marcadas = new String(juego);
-            return marcadas;
+        String marcadas = new String(juego);
+        return marcadas;
 
     }
 
@@ -66,29 +66,33 @@ public class Lingo {
         Scanner in = new Scanner(System.in);
         String palabra = "";  // Aquí puedes poner cualquier palabra de 5 letras para adivinar
         boolean continua = false;
-        boolean palabraValida=false;
+        boolean palabraValida = false;
         int intentos = 5;
 
         System.out.println("BIENVENIDO AL JUEGO DEL LINGO");
         System.out.println("Debes adivinar una palabra de 5 letras.");
 
-        while (!palabraValida) {//creas el bucle para añada la palabra que es valida
-            System.out.println("Ingresa una palabra para adivinar");
-            palabra = in.next();
-            palabraValida = true;//si la palabra es verdad
+        while (!palabraValida) {
+            System.out.println("Ingresa una palabra para adivinar:");
+            palabra = in.next().toLowerCase(); // Convertir la palabra a minúsculas
+            palabraValida = true;
 
-            for (int i = 0; i < palabra.length(); i++) {//leera el tamaño de la palabra
-                if (!Character.isLetter(palabra.charAt(i))) {//si la palabra es distinto al caracter
-                    palabraValida = false;
+            if (palabra.length() != 5) {
+                palabraValida = false;
+            } else {
+                for (int i = 0; i < palabra.length(); i++) {
+                    if (!Character.isLetter(palabra.charAt(i))) {
+                        palabraValida = false;
+                    }
                 }
-            }
-            if (!palabraValida) {//si no es una palabra sera false
-                System.out.println("palabra no valida,añade una nueva");
+                if (!palabraValida) {//si no es una palabra sera false
+                    System.out.println("palabra no valida,añade una nueva");
+                }
             }
         }
 
-        // Bucle principal del juego
-        while (intentos > 0) {
+            // Bucle principal del juego
+        while (intentos > 0 && !continua) {
             System.out.println("Intentos restantes: " + intentos);
             System.out.print("Ingresa una palabra de 5 letras: ");
             String intento = in.next().toLowerCase();
@@ -96,28 +100,24 @@ public class Lingo {
             // Validar que la palabra tenga 5 letras
             if (intento.length() != 5) {
                 System.out.println("La palabra debe tener 5 letras.");
-                continue;
             }
 
             // Verificar si adivinó la palabra
-            if (intento.equals(palabra)) {
+            if (intento.equalsIgnoreCase(palabra)) { // Comprueba si adivinó la palabra
                 System.out.println("¡Felicidades! Adivinaste la palabra: " + palabra);
-                continua = true;
-                break;
+                continua = true; // Marca que la palabra fue adivinada
+            } else {
+                // Mostrar la pista
+                String pista = palabraUser(palabra, intento);
+                System.out.println("Pista: " + pista);
+                intentos--;  // Si no adivinó, restamos un intento
+            }
+        }
+            // Si no adivinó la palabra
+            if (!continua) {
+                System.out.println("Lo siento, se te acabaron los intentos. La palabra era: " + palabra);
             }
 
-            // Mostrar la pista
-            String pista = palabraUser(palabra, intento);
-            System.out.println("Pista: " + pista);
-
-            intentos--;
         }
-
-        // Si no adivinó la palabra
-        if (!continua) {
-            System.out.println("Lo siento, se te acabaron los intentos. La palabra era: " + palabra);
-        }
-
     }
-}
 

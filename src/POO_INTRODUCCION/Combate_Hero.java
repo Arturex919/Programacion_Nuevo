@@ -12,15 +12,15 @@ public class Combate_Hero {
         name = in.next();
         heroe.setName(name);
 
-        System.out.println("Ingresa un valor de tu ataque entre 1 y 200");
+        System.out.println("Ingresa un valor de tu ataque");
         ataque = in.nextInt();
         heroe.setAttack(ataque);
 
-        System.out.println("Ingresa un valor de tu defensa entre 1 y 200");
+        System.out.println("Ingresa un valor de tu defensa");
         defensa = in.nextInt();
         heroe.setDefense(defensa);
 
-        System.out.println("Ingresa un valor para tu salud entre 1 y 200");
+        System.out.println("Ingresa un valor para tu salud ");
         salud = in.nextInt();
         heroe.setHealth(salud);
 

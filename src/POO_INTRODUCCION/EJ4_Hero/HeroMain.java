@@ -1,4 +1,6 @@
-package POO_INTRODUCCION;
+package POO_INTRODUCCION.EJ4_Hero;
+
+import POO_INTRODUCCION.Hero;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -21,7 +23,7 @@ public class HeroMain {
             Hero[] enemigos = new Hero[numEnemigos];
 
             for (int i = 0; i < enemigos.length; i++) {//recorre y le entrega el valor al enemigo y la almacena
-                enemigos[i] = new Hero("Goblins "+(i+1), (i+1), 50, 50, 0, 50, 50);
+                enemigos[i] = new Hero("Goblins " + (i + 1), (i + 1), 50, 50, 0, 50, 50);
             }
             boolean combate = false;
             while (!combate) {
@@ -52,7 +54,7 @@ public class HeroMain {
                         enemigos[i].setHealth(0); // El enemigo huye, por lo que se marca su salud como 0
                     } else {
                         enemigos[i].attack(hero); // Si no huye, ataca
-                        System.out.println(enemigos[i].getName() + " ha atacado "+ hero.getName());
+                        System.out.println(enemigos[i].getName() + " ha atacado " + hero.getName());
                     }
                     if (hero.getHealth() <= 0) {
                         combate = true;
@@ -61,7 +63,7 @@ public class HeroMain {
                 }
                 for (int i = 0; i < enemigos.length; i++) {
                     if (enemigos[i].getHealth() <= 0) {
-                        System.out.println(enemigos[i].getName()+"enemigo muerto");
+                        System.out.println(enemigos[i].getName() + "enemigo muerto");
 
                         combate = true;
                     }

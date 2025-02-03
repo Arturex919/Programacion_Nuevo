@@ -1,4 +1,4 @@
-package POO_INTRODUCCION;
+package POO_INTRODUCCION.EJ2_Persona;
 
 public class Persona {
     private String name;

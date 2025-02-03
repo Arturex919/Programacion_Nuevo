@@ -1,4 +1,7 @@
-package POO_INTRODUCCION;
+package POO_INTRODUCCION.EJ3_Hero;
+
+import POO_INTRODUCCION.EJ4_Hero.HeroMain;
+import POO_INTRODUCCION.Hero;
 
 import java.util.Scanner;
 
@@ -140,5 +143,7 @@ public class Combate_Hero {
     }
 
 
+    public static class Cuentas {
+    }
 }
 

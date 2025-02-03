@@ -1,4 +1,4 @@
-package POO_INTRODUCCION;
+package POO_INTRODUCCION.EJ1_Reloj;
 
 public class Reloj {
     private int hora;

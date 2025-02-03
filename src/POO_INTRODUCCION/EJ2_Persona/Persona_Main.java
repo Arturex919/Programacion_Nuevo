@@ -1,6 +1,5 @@
-package POO_INTRODUCCION;
+package POO_INTRODUCCION.EJ2_Persona;
 
-import java.util.IllegalFormatCodePointException;
 import java.util.Scanner;
 
 public class Persona_Main {

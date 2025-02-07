@@ -47,8 +47,8 @@ public class Cuenta {
             System.out.println("Error en el abono");
         }
     }
-    //paga los recibos
-    public double recibos(double monto){
+    //paga los pagos
+    public boolean pagos(double monto){
 
         if (monto >0 && monto <= saldo){
 
@@ -58,10 +58,10 @@ public class Cuenta {
             System.out.println("");
             System.out.println("Pago de $" + monto + " realizado con éxito.");
             System.out.println("Su saldo actualizado es: "+saldo);
-            return saldo;
+            return true;
         }else {
             System.out.println("Fondos insuficiente o monto invalido");
-            return saldo;//devolvemos el saldo nuevo
+            return false;
         }
 
         }

@@ -18,17 +18,29 @@ public class Persona {
         this.numeroCuenta = 0;//inicializas con cero para que vaya contando las cuentas
         this.dni = dni;
     }
+//getters
+
+    public int getNumeroCuenta() {
+        return numeroCuenta;
+    }
 
     public String getDni() {
         return dni;
     }
 
+    //settes
     public void setDni(String dni) {
         this.dni = dni;
     }
 
+    public void setNumeroCuenta(int numeroCuenta) {
+        this.numeroCuenta = numeroCuenta;
+    }
 
     //metodos
+    public Cuenta[] getCuentas() {
+        return cuentas;
+    }
     public String toString() {
         System.out.println("el numero del dni es : " + getDni());
         System.out.println("el numero de usuario es : " + numeroCuenta);
@@ -56,10 +68,7 @@ public class Persona {
                 System.out.println("Error tiene una cuenta con un saldo insuficiente");
                 return true;
             }
-            i++;//busca a la siguiente cuenta
         }
         return false;
     }
-
-
 }

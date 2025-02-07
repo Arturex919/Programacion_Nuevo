@@ -17,7 +17,7 @@ public class Cuenta {
         this.numeroCuenta = numeroCuenta;
         this.saldo = saldo;
     }
-
+//set cuenta
     //get
     public int getNumeroCuenta() {
         return numeroCuenta;

@@ -1,11 +1,18 @@
 package POO_INTRODUCCION.CUENTAS;
 
+import POO_INTRODUCCION.Cuentas;
+
 public class Persona {
 
     private int numeroCuenta;
     private Cuenta[] cuentas;
     private String dni;
-//const con parametros
+
+    public Persona() {
+    }
+
+    //const con parametros
+
     public Persona(String dni) {//solo ocupas el dni de la persona
         this.cuentas = new Cuenta[3];//especificas el numero de cuentas que hay ;
         this.numeroCuenta = 0;//inicializas con cero para que vaya contando las cuentas
@@ -21,15 +28,22 @@ public class Persona {
     }
 
 
-//metodos
+    //metodos
+    public String toString() {
+        System.out.println("el numero del dni es : " + getDni());
+        System.out.println("el numero de usuario es : " + numeroCuenta);
+        return "";
+    }
 
-    public boolean añadirCuenta(Cuenta cuenta){
-
-        if (numeroCuenta<3){
-            this.cuentas[numeroCuenta]=cuenta;
+    public boolean aniadirCuenta(Cuenta cuenta) {
+        int numeroCUneta = 0;
+        if (numeroCuenta < 3) {
+            this.cuentas[numeroCuenta] = cuenta;
             numeroCuenta++;
-            System.out.println("Cuenta añadida exitosamente");
-        return true;
+            System.out.println("La cuenta del numero DNI : " + getDni());
+            System.out.println(" el numero de la cuenta: " + cuenta);
+            System.out.println("La cuenta fue añadida exitosamente");
+            return true;
         }
         return false;
 
@@ -46,7 +60,6 @@ public class Persona {
         }
         return false;
     }
-
 
 
 }

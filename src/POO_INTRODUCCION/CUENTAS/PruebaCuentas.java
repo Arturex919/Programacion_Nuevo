@@ -197,55 +197,128 @@ public class PruebaCuentas {
                         System.out.println("Persona no encontrada.");
                     }
                 }
-                case 5 ->{
-                    case 5 -> { // Realizar un pago
-                        System.out.println("Ingrese el DNI del usuario:");
-                        String dni = in.nextLine();
+                case 5 -> {
+                    System.out.println("Ingrese el DNI del usuario:");
+                    dni = in.nextLine();
 
-                        Persona persona = null;
+                    Persona persona = null;
 
-                        // Buscar persona en el array
-                        for (Persona personDentro : personas) {
-                            if (personDentro != null && personDentro.getDni().equals(dni)) {
-                                persona = personDentro;
-                                break;
+                    // Buscar persona en el array
+                    for (Persona personDentro : personas) {
+                        if (personDentro != null && personDentro.getDni().equals(dni)) {
+                            persona = personDentro;
+                        }
+                    }
+
+                    if (persona != null) { // Si la persona fue encontrada
+                        System.out.println("Ingrese el número de cuenta desde donde desea pagar:");
+                        int numeroCuenta = in.nextInt();
+                        in.nextLine(); // Consumir salto de línea
+
+                        Cuenta cuentaEncontrada = null;
+
+                        // Buscar la cuenta dentro de las cuentas de la persona
+                        for (Cuenta cuenta : persona.getCuentas()) {
+                            if (cuenta != null && cuenta.getNumeroCuenta() == numeroCuenta) {
+                                cuentaEncontrada = cuenta;
                             }
                         }
 
-                        if (persona != null) { // Si la persona fue encontrada
-                            System.out.println("Ingrese el número de cuenta desde donde desea pagar:");
-                            int numeroCuenta = in.nextInt();
-                            in.nextLine(); // Consumir salto de línea
+                        if (cuentaEncontrada != null) { // Si la cuenta fue encontrada
+                            System.out.println("Ingrese el monto a pagar:");
+                            double monto = in.nextDouble();
 
-                            Cuenta cuentaEncontrada = null;
+                            if (cuentaEncontrada.pagos(monto)) {//llamas al metodo para pagar  .
 
-                            // Buscar la cuenta dentro de las cuentas de la persona
-                            for (Cuenta cuenta : persona.getCuentas()) {
-                                if (cuenta != null && cuenta.getNumeroCuenta() == numeroCuenta) {
-                                    cuentaEncontrada = cuenta;
-                                    break;
-                                }
-                            }
 
-                            if (cuentaEncontrada != null) { // Si la cuenta fue encontrada
-                                System.out.println("Ingrese el monto a pagar:");
-                                double monto = in.nextDouble();
-                                in.nextLine(); // Consumir salto de línea
-
-                                if (cuentaEncontrada.pagar(monto)) {
-                                    System.out.println("Pago de " + monto + " realizado desde la cuenta " + numeroCuenta);
-                                } else {
-                                    System.out.println("Fondos insuficientes para realizar el pago.");
-                                }
+                                System.out.println("Pago de " + monto + " realizado desde la cuenta " + numeroCuenta);
                             } else {
-                                System.out.println("Número de cuenta no encontrado.");
+                                System.out.println("Fondos insuficientes para realizar el pago.");
                             }
                         } else {
-                            System.out.println("Persona no encontrada.");
+                            System.out.println("Número de cuenta no encontrado.");
                         }
+                    } else {
+                        System.out.println("Persona no encontrada.");
+                    }
+                }
+                case 6 -> {
+                    System.out.println("Ingrese el dni del usuario");
+                    dni = in.nextLine();
+                    Persona persona = null;
+
+                    for (Persona personaDetro : personas) {
+                        if (personaDetro != null && personaDetro.getDni().equals(dni)) {
+                            persona = personaDetro;
+                        }
+                    }
+                    if (persona != null) {
+                        System.out.println("Cuentas disponibles para la transferencia:");
+                        for (int i = 0; i < persona.getNumeroCuenta(); i++) {
+                            Cuenta cuentaOrigen = persona.getCuentas()[i];
+                            if (cuentaOrigen != null) {
+                                System.out.println((i + 1) + ". Cuenta " + cuentaOrigen.getNumeroCuenta() + " - Saldo: " + cuentaOrigen.getSaldo());
+                            }
+                        }
+                        // Opción de cuenta de origen
+                        System.out.println("Selecciona tu cuenta de origen");
+                        int opcCuentaOrigen = in.nextInt() - 1; // Se resta 1 para que el usuario seleccione correctamente la posición en el array
+
+                        // Nos aseguramos de que la cuenta seleccionada sea válida y pertenezca al usuario
+                        if (opcCuentaOrigen >= 0 && opcCuentaOrigen < persona.getNumeroCuenta()) {
+                            Cuenta cuentaOrigen = persona.getCuentas()[opcCuentaOrigen]; // Guarda la cuenta seleccionada
+
+                            // Selección de cuenta de destino
+                            System.out.println("Selecciona una cuenta de destino:");
+
+                            // Mostramos las cuentas disponibles para transferencia (excepto la de origen)
+                            for (int i = 0; i < persona.getNumeroCuenta(); i++) {
+                                Cuenta cuentaPersonaF = persona.getCuentas()[i];
+                                if (cuentaPersonaF != null && cuentaPersonaF != cuentaOrigen) {
+                                    System.out.println((i + 1) + ". Cuenta " + cuentaPersonaF.getNumeroCuenta() + " - Saldo: " + cuentaPersonaF.getSaldo());
+                                }
+                            }
+
+                            // Pedimos al usuario que seleccione la cuenta de destino
+                            System.out.print("Ingrese la opción de la cuenta destino: ");
+                            int opcionCuentaDestino = in.nextInt() - 1; // Se ajusta para coincidir con el índice del array
+                            in.nextLine(); // Consumimos el salto de línea para evitar errores en la lectura
+
+                            // Verificamos que la cuenta de destino sea válida y diferente de la de origen
+                            if (opcionCuentaDestino >= 0 && opcionCuentaDestino < persona.getNumeroCuenta() && persona.getCuentas()[opcionCuentaDestino] != cuentaOrigen) {
+                                Cuenta cuentaDestino = persona.getCuentas()[opcionCuentaDestino];
+
+                                // Solicitamos el monto a transferir
+                                System.out.println("Ingrese el monto a transferir:");
+                                double monto = in.nextDouble();
+                                in.nextLine(); // Consumimos el salto de línea nuevamente para evitar errores posteriores
+
+                                // Realizamos la transferencia
+                                persona.transferencia(cuentaOrigen, cuentaDestino, monto);
+                            } else {
+                                System.out.println("Cuenta de destino inválida.");
+                            }
+                        } else {
+                            System.out.println("Cuenta de origen inválida.");
+                        }
+
+                    }
+                }
+                case 7 ->{
+                    for(Persona person: personas){
+                    if (person !=null && person.esMoroso()){
+                        System.out.println("Dni"+person.getDni());
                     }
                 }
             }
+            case 8 ->{
+                System.out.println("Saliendo");
+                }
+                default -> {
+                    System.out.println("Opcion no valida");
+                }
+            }
         } while (opcion != 8);
+
     }
 }

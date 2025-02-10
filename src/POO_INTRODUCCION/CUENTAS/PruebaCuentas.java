@@ -270,7 +270,9 @@ public class PruebaCuentas {
 
                             // Selección de cuenta de destino
                             System.out.println("Selecciona una cuenta de destino:");
-
+/*Haz una aplicación que permita crear una lista de la compra. Leerá por
+consola varios productos y los guardará todos en un set. Si intentas guardar
+dos veces el mismo producto te avisará que ya existe el producto.*/
                             // Mostramos las cuentas disponibles para transferencia (excepto la de origen)
                             for (int i = 0; i < persona.getNumeroCuenta(); i++) {
                                 Cuenta cuentaPersonaF = persona.getCuentas()[i];

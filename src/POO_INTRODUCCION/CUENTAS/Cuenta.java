@@ -41,8 +41,8 @@ public class Cuenta {
     public  void abonos(double monto){
 
         if (monto>0){
-            saldo+=monto;
-            System.out.println("Le han abonado "+saldo+" a su cuenta");
+            this.saldo+=monto;
+            System.out.println("Le han abonado "+this.saldo+" a su cuenta");
         }else {
             System.out.println("Error en el abono");
         }
@@ -52,12 +52,13 @@ public class Cuenta {
 
         if (monto >0 && monto <= saldo){
 
-          double pago =saldo-monto;
+          //double pago =saldo-monto;
+          this.saldo = this.saldo-monto;
 
             System.out.println("El total a pagar es: "+monto);
             System.out.println("");
             System.out.println("Pago de $" + monto + " realizado con éxito.");
-            System.out.println("Su saldo actualizado es: "+saldo);
+            System.out.println("Su saldo actualizado es: "+this.saldo);
             return true;
         }else {
             System.out.println("Fondos insuficiente o monto invalido");

@@ -65,6 +65,8 @@ public class Persona {
         System.out.println("No se pueden agregar más cuentas. Límite alcanzado.");
         return false; // Si ya no hay espacio para más cuentas
     }
+
+    //REVISAR EJEMPLO DE ANA
     public boolean transferencia(Cuenta cuentaOrigen, Cuenta cuentaDestino, double saldo) {
         // Verificar que ambas cuentas existen
         if (cuentaOrigen != null && cuentaDestino != null) {

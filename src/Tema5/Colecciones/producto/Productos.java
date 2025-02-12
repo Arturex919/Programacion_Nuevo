@@ -1,9 +1,10 @@
-package Tema5.Colecciones;
+package Tema5.Colecciones.producto;
 
 import java.util.Objects;
 
 public class Productos {
     private String nombre;
+
 
     public Productos(String nombre) {
         this.nombre = nombre;
@@ -17,18 +18,20 @@ public class Productos {
         this.nombre = nombre;
     }
 
-    public boolean compara(Productos objeto) {
+
+    //si no sobreescribes el codigo no funciona
+    // Sobrescribir equals para comparar productos por su nombre de manera
+    public boolean equals(Object  objeto) {
         if (this == objeto) return true;
         if (objeto == null || getClass() != objeto.getClass()) return false;
         Productos producto=(Productos) objeto;
-        return Objects.equals(this.nombre.toLowerCase(), producto.nombre.toLowerCase());
+        return nombre.equalsIgnoreCase(producto.nombre);  // Comparamos los nombres ignorando mayúsculas/minúsculas
     }
-    @Override
+
     public int hashCode() {
         return Objects.hash(nombre.toLowerCase());
     }
 
-    @Override
     public String toString() {
         return nombre;
     }

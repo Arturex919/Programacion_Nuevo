@@ -20,9 +20,10 @@ public class Gym_main {
                     aniadePersona();
                 }
                 case 2 -> {
+                darseBaja();
                 }
                 case 3 -> {
-
+                    mostrarDatos();
                 }
                 case 4 -> {
 
@@ -60,6 +61,26 @@ public class Gym_main {
         int edad= in.nextInt();
         Usuario user=new Usuario(nombre,edad);
     }
-
+public  static void darseBaja(){
+    Scanner in = new Scanner(System.in);
+    System.out.println("ingresa tu dni");
+    String dni = in.nextLine();
+    //contains  se usa para verificar claves existente
+    if (gimnasio.containsKey(dni)) {
+        System.out.println("ERROR : Ya existe un dni con este numero");
+    }
+    gimnasio.remove(dni);
+    System.out.println("El usuario con Dni :"+dni+ "fue eliminado exitosamente");
+}
+public static void mostrarDatos(){
+    Scanner in = new Scanner(System.in);
+    System.out.println("ingresa tu dni");
+    String dni = in.nextLine();
+    //contains  se usa para verificar claves existente
+    if (gimnasio.containsKey(dni)) {
+        System.out.println("ERROR : Ya existe un dni con este numero");
+    }
+    gimnasio.get(dni);
+}
 
 }

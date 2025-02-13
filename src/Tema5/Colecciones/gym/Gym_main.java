@@ -1,9 +1,8 @@
-package Tema5.Colecciones.producto.gym;
+package Tema5.Colecciones.gym;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.UUID;
 
 public class Gym_main {
     //usas el map afuera como una especie de metodo para que puedas usar en el todo el codigo

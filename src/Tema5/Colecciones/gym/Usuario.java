@@ -1,4 +1,4 @@
-package Tema5.Colecciones.producto.gym;
+package Tema5.Colecciones.gym;
 
 public class Usuario {
     private  String nombre;

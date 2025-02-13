@@ -5,9 +5,10 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class ProductosMain {
+    private static Set<Productos> lista = new HashSet<>();  // Conjunto para guardar productos
+
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        Set<Productos> lista = new HashSet<>();  // Conjunto para guardar productos
+    Scanner in = new Scanner(System.in);
         boolean sal = false; // Variable para controlar cuándo salir del bucle
 
         do {
@@ -29,14 +30,18 @@ public class ProductosMain {
                 }
             }
            // Mostrar la lista de la compra
-            System.out.println("Su lista de la compra:");
-            for (Productos product : lista) {
-                System.out.println("- " + product);  // Mostrar cada producto en la lista
-            }
+            verLista();
+
 
         } while (!sal);
 
         System.out.println("Gracias por usar la lista de la compra.");
         in.close();
+    }
+    public static void verLista(){
+        System.out.println("Su lista de la compra:");
+        for (Productos product : lista) {
+            System.out.println("- " + product);  // Mostrar cada producto en la lista
+        }
     }
 }

@@ -3,6 +3,7 @@ package Tema5.Colecciones.producto.gym;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class Gym_main {
     //usas el map afuera como una especie de metodo para que puedas usar en el todo el codigo
@@ -26,7 +27,7 @@ public class Gym_main {
                     mostrarDatos();
                 }
                 case 4 -> {
-
+                    modificarDatos();
                 }
                 case 5 -> {
                     System.out.println("adiosss");
@@ -60,6 +61,9 @@ public class Gym_main {
         System.out.println("Añade tu edad");
         int edad= in.nextInt();
         Usuario user=new Usuario(nombre,edad);
+        //put es para añadir
+        gimnasio.put(dni,user);
+
     }
 public  static void darseBaja(){
     Scanner in = new Scanner(System.in);
@@ -72,15 +76,43 @@ public  static void darseBaja(){
     gimnasio.remove(dni);
     System.out.println("El usuario con Dni :"+dni+ "fue eliminado exitosamente");
 }
-public static void mostrarDatos(){
+public static void mostrarDatos() {
     Scanner in = new Scanner(System.in);
     System.out.println("ingresa tu dni");
     String dni = in.nextLine();
-    //contains  se usa para verificar claves existente
-    if (gimnasio.containsKey(dni)) {
-        System.out.println("ERROR : Ya existe un dni con este numero");
+    // Verificar si el DNI existe en el mapa
+    if (!gimnasio.containsKey(dni)) {
+        System.out.println("ERROR: No existe un usuario con este DNI.");
+    } else {
+        // Obtener el usuario asociado al DNI y mostrarlo
+        Usuario usuario = gimnasio.get(dni);
+        System.out.println("Datos del usuario:");
+        System.out.println(usuario); // Llama al método toString() automáticamente
     }
-    gimnasio.get(dni);
 }
+    public static void modificarDatos(){
+    Scanner in = new Scanner(System.in);
+        System.out.println("añada tu dni");
+        String dni = in.nextLine();
+        //contains  se usa para verificar claves existente
+        if (gimnasio.containsKey(dni)) {
+             Usuario user=gimnasio.get(dni);
+        System.out.println("Agrega tu nuevo nombre o deja vacio para no cambiar");
+        String nombre=in.nextLine();
+        if (!nombre.isEmpty()){
+            user.setNombre(nombre);
+    }
+        System.out.println("Agrega tu nueva edad si no toca un -1 para no cambiar");
+        int edad=in.nextInt();
+        if (edad !=-1){
+            user.setEdad(edad);
+        }
+        System.out.println("Se han modificado sus datos ");
+        System.out.println("sus nuevos datos son:");
+            System.out.println(user);
+    }else {
+            System.out.println("ERROR : Ya existe un dni con este numero");
+        }
 
+}
 }

@@ -28,10 +28,9 @@ public class Usuario {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    @Override
+@Override
     public String toString() {
-        return "Nombre: "+nombre+"/n+" +
+        return "Nombre: "+nombre+"\n" +
                 "edad: "+edad;
     }
 }

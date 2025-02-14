@@ -9,14 +9,15 @@ public class Vector {
         double []vector=new double[5];//creas el vector de 5
         boolean valida=false;
         while (!valida) {
-            for (int i = 0; i < vector.length; i++) {
+            for (int i = 0; i < vector.length; i++) {//recorres el array
                 try {
-                    System.out.println("Añade un valor para " + (i + 1));
+                    System.out.println("Añade un valor para " + (i + 1));//aumenta el numero de valore (i+1)
                     vector[i] = in.nextDouble();
-                    valida=true;
-                } catch (InputMismatchException e) {
+                    valida=true;//valida si acaba el bucle
+                } catch (InputMismatchException e) {//confirma la excepcion
                     System.out.println("Error: El valor ingresado no es un número válido. Inténtelo de nuevo.");
-
+                }finally {
+                    System.out.println("valor asignado correctamente ");
                 }
             }
         }

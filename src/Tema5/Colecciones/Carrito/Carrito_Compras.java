@@ -2,8 +2,6 @@ package Tema5.Colecciones.Carrito;
 
 import Tema5.Colecciones.producto.Productos;
 
-import java.io.PrintStream;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;

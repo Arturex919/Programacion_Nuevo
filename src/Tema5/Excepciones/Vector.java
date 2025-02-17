@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Vector {
+    //añadir error arrayIndexOut.....
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
         double []vector=new double[5];//creas el vector de 5

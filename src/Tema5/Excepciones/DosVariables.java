@@ -27,7 +27,8 @@ public class DosVariables {
         int division=num1/num2;
             System.out.println("el resultado es "+division);
     }catch ( ArithmeticException e){
-            System.out.println("error en la division");
+            System.out.println(e.getMessage());
+
         }
 }
 }

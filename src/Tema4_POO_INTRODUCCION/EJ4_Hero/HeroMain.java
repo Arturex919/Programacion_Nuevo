@@ -1,6 +1,6 @@
-package POO_INTRODUCCION.EJ4_Hero;
+package Tema4_POO_INTRODUCCION.EJ4_Hero;
 
-import POO_INTRODUCCION.Hero;
+import Tema4_POO_INTRODUCCION.Hero;
 
 import java.util.Random;
 import java.util.Scanner;

@@ -64,6 +64,7 @@ public class Gym_main {
         gimnasio.put(dni,user);
 
     }
+    //revisar el ERRO:
 public  static void darseBaja(){
     Scanner in = new Scanner(System.in);
     System.out.println("ingresa tu dni");
@@ -103,7 +104,7 @@ public static void mostrarDatos() {
     }
         System.out.println("Agrega tu nueva edad si no toca un -1 para no cambiar");
         int edad=in.nextInt();
-        if (edad !=-1){
+        if (edad <=-1){
             user.setEdad(edad);
         }
         System.out.println("Se han modificado sus datos ");

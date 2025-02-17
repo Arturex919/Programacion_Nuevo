@@ -1,7 +1,6 @@
-package POO_INTRODUCCION.EJ3_Hero;
+package Tema4_POO_INTRODUCCION.EJ3_Hero;
 
-import POO_INTRODUCCION.EJ4_Hero.HeroMain;
-import POO_INTRODUCCION.Hero;
+import Tema4_POO_INTRODUCCION.Hero;
 
 import java.util.Scanner;
 

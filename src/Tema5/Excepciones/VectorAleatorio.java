@@ -10,14 +10,19 @@ public class VectorAleatorio {
         int valorRandom = random.nextInt(100) + 1;//numero aleatoria del 1 al 100
         int[] N = new int[valorRandom];//tiene un valor del 1 al 10
 
-        //va a llenar el vector con numero de 1 al 10
-        System.out.println("añade un numero");
-        for (int i = 0; i < N.length; i++) {
-            N[i] = random.nextInt(10) + 1;//asignad un valor entre el 1 al 10
-        }
-        System.out.println("se ha creado un vector del tamaño" + N);
-        System.out.println("Los valores se asigan aletoriamente del 1 al 100");
+        try {
+            //va a llenar el vector con numero de 1 al 10
+            System.out.println("añade un numero");
+            for (int i = 0; i < N.length; i++) {
+                //añadir en un try
+                N[i] = random.nextInt(10) + 1;//asignad un valor entre el 1 al 10
+            }
+            System.out.println("se ha creado un vector del tamaño" + N);
+            System.out.println("Los valores se asigan aletoriamente del 1 al 100");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
 
+        }
         boolean continua = true;
         while (continua) {
             try {
@@ -32,13 +37,11 @@ public class VectorAleatorio {
                     System.out.println("numero no reconocido");
                 }
             } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println(" Te saliste del array ingresa un numero nuevo");
+                System.out.println(e.getMessage());
+                //añadir e.getMessage()
 
             } catch (Exception e) {
-                System.out.println("valor incorrecto");
-
-            } finally {
-                System.out.println("Valor ingresado correctamente");
+                System.out.println(e.getMessage());
 
             }
 

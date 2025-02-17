@@ -1,4 +1,4 @@
-package POO_INTRODUCCION;
+package Tema4_POO_INTRODUCCION;
 
 public class Hero {
     //cons evita los magic numbers

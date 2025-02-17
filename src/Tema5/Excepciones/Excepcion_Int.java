@@ -10,6 +10,7 @@ public class Excepcion_Int {
            System.out.println("añada un numero entero");
            int num = in.nextInt();
            System.out.println("el numero introducido es "+num);
+
        }catch (InputMismatchException num){
            System.out.println("Valor introducido incorrecto,ingresa un numero entero");
        }finally {

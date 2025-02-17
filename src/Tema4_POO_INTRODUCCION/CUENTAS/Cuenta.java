@@ -1,4 +1,4 @@
-package POO_INTRODUCCION.CUENTAS;
+package Tema4_POO_INTRODUCCION.CUENTAS;
 
 public class Cuenta {
     private int numeroCuenta;

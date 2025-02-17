@@ -19,21 +19,21 @@ public class GatoMain {
             gato.setEdad(edad);
             Gato gato1 = new Gato(nombre, edad);
             System.out.println(gato1.toString());
-
+            in.nextLine();
+            Gato gatico = new Gato();
             System.out.println("Añade un nombre (El nombre debe tener más de 3 caracteres):");
-            nombre = in.nextLine();  // Leer el nombre
+            nombre = in.nextLine();
+            gatico.setNombre(nombre);
             System.out.println("Ingresa la edad del segundo gato:");
-            edad = in.nextInt();  // Leer la edad
-            in.nextLine();  // Limpiar el buffer del scanner
+            edad = in.nextInt();
+            gatico.getEdad();
             Gato gato2 = new Gato(nombre, edad);
             System.out.println(gato2.toString());
         } catch (IllegalFormatException e) {
-            System.out.println("errooor");
-
+            System.out.println(e.getMessage());
         } catch (Exception e) {
-            System.out.println("Error: ingresa un formato valido");
-        }finally {
-            System.out.println("valor asignado correctamente ");
+            System.out.println(e.getMessage());
+            //e.getMessat
         }
     }
 }

@@ -85,7 +85,7 @@ public static void mostrarDatos() {
     // Verificar si el DNI existe en el mapa
     if (!gimnasio.containsKey(dni)) {
         System.out.println("ERROR: No existe un usuario con este DNI.");
-    } else {
+    }else {
         // Obtener el usuario asociado al DNI y mostrarlo
         Usuario usuario = gimnasio.get(dni);
         System.out.println("Datos del usuario:");

@@ -124,14 +124,14 @@ public class Carrito_Compras {
 
     public static void verCarrito(ArrayList<Productos> carrito) {
 
-       if (carrito.isEmpty()) {
-           System.out.println("El carrito esta vacio");
-       }else {
-           System.out.println("Los productos en el carrito son: ");
-           for (Productos carro : carrito) {
-               System.out.println(carro);
-           }
-       }
+        if (carrito.isEmpty()) {
+            System.out.println("El carrito esta vacio");
+        } else {
+            System.out.println("Los productos en el carrito son: ");
+            for (Productos carro : carrito) {
+                System.out.println(carro);
+            }
+        }
     }
 
     public static void faltantes(ArrayList<Productos> carrito,ArrayList<Productos> lista) {

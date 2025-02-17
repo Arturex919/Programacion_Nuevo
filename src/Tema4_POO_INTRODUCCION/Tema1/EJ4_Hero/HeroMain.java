@@ -1,4 +1,4 @@
-package Tema4_POO_INTRODUCCION.EJ4_Hero;
+package Tema4_POO_INTRODUCCION.Tema1.EJ4_Hero;
 
 import Tema4_POO_INTRODUCCION.Hero;
 

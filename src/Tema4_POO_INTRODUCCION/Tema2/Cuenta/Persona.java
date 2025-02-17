@@ -1,4 +1,4 @@
-package Tema4_POO_INTRODUCCION.CUENTAS;
+package Tema4_POO_INTRODUCCION.Tema2.Cuenta;
 
 
 public class Persona {

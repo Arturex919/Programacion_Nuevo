@@ -1,4 +1,4 @@
-package Tema4_POO_INTRODUCCION.EJ1_Reloj;
+package Tema4_POO_INTRODUCCION.Tema1.EJ1_Reloj;
 
 import java.util.Scanner;
 

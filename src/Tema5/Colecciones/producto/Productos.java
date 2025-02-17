@@ -23,8 +23,6 @@ public class Productos {
     // Sobrescribir equals para comparar productos por su nombre de manera
     //no lo usas en la clase Carrito, ni en el ejer 1 ni 4
     public boolean equals(Object  objeto) {
-        if (this == objeto) return true;
-        if (objeto == null || getClass() != objeto.getClass()) return false;
         Productos producto=(Productos) objeto;
         return nombre.equalsIgnoreCase(producto.nombre);  // Comparamos los nombres ignorando mayúsculas/minúsculas
     }
@@ -37,4 +35,7 @@ public class Productos {
         return nombre;
     }
 }
-
+/*
+si necesitas compara objetos usa esto
+if (this == objeto) return true;
+ if (objeto == null || getClass() != objeto.getClass()) return false;*/

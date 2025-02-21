@@ -46,9 +46,9 @@ public class Vehiculo {
     }
 
     //metodos
-    public void muestraCoche(){
-        System.out.println("El tipo de vehiculo es : "+getTipo()+"\n"+
+    public String toString(){
+        return "El tipo de vehiculo es : "+getTipo()+"\n"+
                 "\n"+ "la marca del vehiculo es"+getVehiculo()+"\n"+
-                "con el numero de plazas"+numeroPlaza);
+                "con el numero de plazas"+numeroPlaza;
     }
 }

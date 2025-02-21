@@ -28,7 +28,13 @@ class Camiones extends Vehiculo {
         this.esPeligroso = esPeligroso;
     }
     public boolean menrcancia(String material) {
-        if ()
+        if (material.equals(esPeligroso)){
+            System.out.println("Es peligrosa");
+            return true;
+        }else{
+            System.out.println("no es peligroso");
+            return false;
+        }
     }
 }
 

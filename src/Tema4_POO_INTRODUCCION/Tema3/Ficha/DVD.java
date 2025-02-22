@@ -5,6 +5,9 @@ public class DVD extends Ficha {
     private int year;
     private String tipo;
 
+    public DVD() {
+    }
+
     public DVD(String titulo, int numero, String director, int year, String tipo) {
         super(titulo, numero);
         this.director = director;

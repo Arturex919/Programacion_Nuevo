@@ -1,8 +1,12 @@
 package Tema4_POO_INTRODUCCION.Tema3.Ficha;
 
 class Revista extends Ficha {
+
     private int numeroPublicacion;
     private int year;
+
+    public Revista() {
+    }
 
     public Revista(String titulo, int numero, int numeroPublicacion, int year) {
         super(titulo, numero);

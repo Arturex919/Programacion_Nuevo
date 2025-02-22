@@ -2,7 +2,7 @@ package Tema_primera_evaluacion.TEMA3.TEMA3_ACT;
 
 import java.util.Scanner;
 //Crea un programa que pida al usuario un radio válido por teclado (>0) y
-//calcule la superficie y perímetro de un círculo. Necesitarás implementar
+//calcule la superficie y perímetro de un Circulo. Necesitarás implementar
 //y utilizar las siguientes funciones:
 //boolean validRadius(radius)
 //double calculateCirclePerimeter(radius)

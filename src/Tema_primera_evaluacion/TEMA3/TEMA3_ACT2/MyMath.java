@@ -3,7 +3,7 @@ package Tema_primera_evaluacion.TEMA3.TEMA3_ACT2;
 import Tema_primera_evaluacion.TEMA3.TEMA3_ACT.EJ7;
 
 //Crea una clase MyMath que tendrá funciones para calcular el perímetro y
-//el área de un círculo, cuadrado y rectángulo. Los nombres de las
+//el área de un Circulo, cuadrado y rectángulo. Los nombres de las
 //funciones serán:
 //squarePerimeter
 //squareArea

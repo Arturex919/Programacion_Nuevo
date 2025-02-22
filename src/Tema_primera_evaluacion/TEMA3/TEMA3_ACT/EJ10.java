@@ -7,7 +7,7 @@ public class EJ10 {
     //ejercicios son modulares no debería costarte demasiado):
     //a) Muestra el signo de un número introducido por el usuario.
     //b) Indica si el usuario es mayor de edad o no.
-    //c) Calcula el área y perímetro de un círculo.
+    //c) Calcula el área y perímetro de un Circulo.
     //d) Conversor de euros a dólares y de dólares a euros.
     //e) Mostrar tabla de multiplicar de un número.
     //f) Mostrar tablas de multiplicar del 1 al 10.
@@ -18,7 +18,7 @@ public class EJ10 {
         System.out.println("Menu Principal ");
         System.out.println("a) Muestra el signo de un número introducido por el usuario.");
         System.out.println("b) Indica si el usuario es mayor de edad o no.");
-        System.out.println("c)Calcula el área y perímetro de un círculo.");
+        System.out.println("c)Calcula el área y perímetro de un Circulo.");
         System.out.println("d) Conversor de euros a dólares y de dólares a euros.");
         System.out.println("e) Mostrar tabla de multiplicar de un número.");
         System.out.println("f) Mostrar tablas de multiplicar del 1 al 10.");

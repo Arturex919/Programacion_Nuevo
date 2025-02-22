@@ -2,53 +2,34 @@ package Tema4_POO_INTRODUCCION.Tema3.Vehiculo;
 
 public class Vehiculo {
 
-    private String tipo;
-    private  String vehiculo;
-    int numeroPlaza;
+    private String marca;
+    private String color;
     // contrustores
 
-    public Vehiculo() {
+    public Vehiculo(String marca, String color) {
+        this.marca = marca;
+        this.color = color;
     }
 
-    public Vehiculo(String tipo, String vehiculo, int numeroPlaza) {
-        this.tipo = tipo;
-        this.vehiculo = vehiculo;
-        this.numeroPlaza = numeroPlaza;
-    }
-//getter
-
-    public String getTipo() {
-        return tipo;
+    public String getMarca() {
+        return marca;
     }
 
-    public String getVehiculo() {
-        return vehiculo;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
-    public int getNumeroPlaza() {
-        return numeroPlaza;
+    public String getColor() {
+        return color;
     }
 
-
-//setters
-
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public void setNumeroPlaza(int numeroPlaza) {
-        this.numeroPlaza = numeroPlaza;
-    }
-
-    public void setVehiculo(String vehiculo) {
-        this.vehiculo = vehiculo;
-    }
-
-    //metodos
-    public String toString(){
-        return "El tipo de vehiculo es : "+getTipo()+"\n"+
-                "\n"+ "la marca del vehiculo es"+getVehiculo()+"\n"+
-                "con el numero de plazas"+numeroPlaza;
+    public void mostrarDatos() {
+        System.out.println("Color: " + color);
+        System.out.println("Marca: " + marca);
     }
 }
+

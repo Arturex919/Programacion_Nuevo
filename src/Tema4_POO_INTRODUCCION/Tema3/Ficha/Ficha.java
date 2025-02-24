@@ -9,8 +9,8 @@ public abstract class Ficha {
     }
 
     public Ficha(String titulo, int numero) {
-        this.titulo = titulo;
-        this.numero = numero;
+        setTitulo(titulo);
+        setNumero(numero);
     }
 //getters y setters
 
@@ -19,7 +19,12 @@ public abstract class Ficha {
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+
+        if (titulo.isEmpty()) {
+            System.out.println("Añade un titulo valido");
+        } else {
+            this.titulo = titulo;
+        }
     }
 
     public int getNumero() {
@@ -27,10 +32,14 @@ public abstract class Ficha {
     }
 
     public void setNumero(int numero) {
-        this.numero = numero;
+        if (numero <= -1) {
+            System.out.println("el numero es no puede ser negativo");
+        } else {
+            this.numero = numero;
+        }
     }
 
     //creas el metodo abstracto
-    public  abstract  void informacion();
+    public abstract void informacion();
 
 }

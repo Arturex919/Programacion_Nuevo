@@ -10,8 +10,32 @@ class Revista extends Ficha {
 
     public Revista(String titulo, int numero, int numeroPublicacion, int year) {
         super(titulo, numero);
-        this.numeroPublicacion = numeroPublicacion;
-        this.year = year;
+        setNumeroPublicacion(numeroPublicacion);
+        setYear(year);
+    }
+
+    public int getNumeroPublicacion() {
+        return numeroPublicacion;
+    }
+
+    public void setNumeroPublicacion(int numeroPublicacion) {
+        if (numeroPublicacion <= 0) {
+            System.out.println("añade un numero de publicacion  valida");
+        } else {
+            this.numeroPublicacion = numeroPublicacion;
+        }
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        if (year <= 0) {
+            System.out.println("Introduce un año válido.");
+        } else {
+            this.year = year;
+        }
     }
 
     @Override

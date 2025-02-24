@@ -8,6 +8,22 @@ class Rectangulo extends Figura2d {
         this.altura = altura;
     }
 
+    public double getBase() {
+        return base;
+    }
+
+    public void setBase(double base) {
+        this.base = base;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
     @Override
     public double calculaArea() {
         double result = base * altura;
@@ -22,8 +38,8 @@ class Rectangulo extends Figura2d {
 
     @Override
     public String toString() {
-        return "La base del rectangulo es: " + base + "\n" +
-                "La altura del rectangulo es: " + altura +
+        return "La base del rectangulo es: " + getBase() + "\n" +
+                "La altura del rectangulo es: " + getAltura() +
                 "\n" + super.toString();
     }
 }

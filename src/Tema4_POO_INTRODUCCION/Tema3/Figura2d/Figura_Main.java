@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Figura_Main {
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
-        Cuadrado cuadrado=new Cuadrado(2);
+        Cuadrado cuadrado=new Cuadrado(2,2);
         cuadrado.calculaArea();
         cuadrado.calculaPerimetro();
         System.out.println(cuadrado);

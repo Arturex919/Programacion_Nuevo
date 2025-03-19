@@ -34,7 +34,7 @@ public class B7 {
         System.out.println("Número de líneas: " + cuentaLinea);
         System.out.println("Número de palabras: " + cuentaPalabra);
         System.out.println("Número de caracteres: " + cuentaCaracter);
-        System.out.println("\nTop 10 palabras más comunes:");
+        System.out.println("Top 10 palabras más comunes:");
 
         // Imprimir las 10 palabras más frecuentes
         for (int i = 0; i < Math.min(10, arreglaPalbras.size()); i++) {

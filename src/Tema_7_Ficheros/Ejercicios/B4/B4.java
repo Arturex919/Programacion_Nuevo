@@ -12,9 +12,15 @@ public class B4 {
 
         System.out.print("¿Cuántos nombres deseas generar?: ");
         int cantidad = in.nextInt();
+        in.nextLine(); // Consumir el salto de línea pendiente después de nextInt()
 
         System.out.print("Ingresa el nombre del archivo donde guardar los nombres: ");
         String archivoSalida = in.nextLine().trim();
+
+        if (archivoSalida.isEmpty()) {
+            System.err.println("Error: No ingresaste un nombre de archivo válido.");
+            return;
+        }
 
         //añades los usuarios en el arraylist
         List<String> nombres = new ArrayList<>();
@@ -24,21 +30,21 @@ public class B4 {
         try (BufferedReader br = Files.newBufferedReader(Paths.get(nombre))) {
             String linea;
             while ((linea = br.readLine()) != null) {
-                nombres.add(linea);//agrega al list nombre
+                nombres.add(linea.trim()); //agrega al list nombre y elimina espacios en blanco innecesarios
             }
         } catch (IOException e) {
-            System.err.println("Error al leer usa_nombres.txt" + e.getMessage());
+            System.err.println("Error al leer usa_nombres.txt: " + e.getMessage());
             return;
         }
 
-        //usamos el segundo lector para que lea los nombres
+        //usamos el segundo lector para que lea los apellidos
         try (BufferedReader br = Files.newBufferedReader(Paths.get(apellido))) {
             String linea;
             while ((linea = br.readLine()) != null) {
-                apellidos.add(linea);//agrega al list apellido
+                apellidos.add(linea.trim()); //agrega al list apellido y elimina espacios en blanco innecesarios
             }
         } catch (IOException e) {
-            System.err.println("Error al leer usa_apellidos.txt"+e.getMessage());
+            System.err.println("Error al leer usa_apellidos.txt: " + e.getMessage());
             return;
         }
 
@@ -51,7 +57,7 @@ public class B4 {
             String nombre1 = nombres.get(random.nextInt(nombres.size()));
             //obtienes los apellidos y le metes un random y para que coja el tamaño del array usas un.size
             String apellido1 = apellidos.get(random.nextInt(apellidos.size()));
-            nombresGenerados.add(nombre1 + " " + apellido1);//lo guardas en el array de nombres generado
+            nombresGenerados.add(nombre1 + " " + apellido1); //lo guardas en el array de nombres generado
         }
 
         // Guardar los nombres generados en el archivo de salida
@@ -59,12 +65,12 @@ public class B4 {
         //StandardOpenOption.APPEND: Si el archivo ya existe, añade el contenido al final en vez de sobrescribirlo.
         try (BufferedWriter bw = Files.newBufferedWriter(Paths.get(archivoSalida), StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
             for (String linea : nombresGenerados) {
-                bw.write(linea);//lo escribes
+                bw.write(linea); //lo escribes
                 bw.newLine();
             }
-            System.out.println(" Nombres generados y guardados en " + archivoSalida);
+            System.out.println("Nombres generados y guardados en " + archivoSalida);
         } catch (IOException e) {
-            System.err.println("Error al escribir en " + archivoSalida);
+            System.err.println("Error al escribir en " + archivoSalida + ": " + e.getMessage());
         }
     }
 }

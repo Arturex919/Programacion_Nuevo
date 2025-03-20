@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.util.Scanner;
 
 public class B6 {
+    /*
     public static void main(String[] args) {
         try {
         Scanner in=new Scanner(System.in);

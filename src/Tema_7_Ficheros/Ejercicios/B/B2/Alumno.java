@@ -1,4 +1,4 @@
-package Tema_7_Ficheros.Ejercicios.B2;
+package Tema_7_Ficheros.Ejercicios.B.B2;
 
 public class Alumno {
     String nombre;

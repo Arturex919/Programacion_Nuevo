@@ -1,4 +1,4 @@
-package Tema_7_Ficheros.Ejercicios.B6;
+package Tema_7_Ficheros.Ejercicios.B.B6;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,4 +1,4 @@
-package Tema_7_Ficheros.Ejercicios.B4;
+package Tema_7_Ficheros.Ejercicios.B.B4;
 
 import java.io.*;
 import java.nio.file.*;

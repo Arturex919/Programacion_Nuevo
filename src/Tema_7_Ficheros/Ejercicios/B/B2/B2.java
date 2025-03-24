@@ -1,11 +1,9 @@
-package Tema_7_Ficheros.Ejercicios.B2;
+package Tema_7_Ficheros.Ejercicios.B.B2;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class B2 {

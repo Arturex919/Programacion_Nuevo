@@ -1,4 +1,4 @@
-package Tema_7_Ficheros.Ejercicios.B7;
+package Tema_7_Ficheros.Ejercicios.B.B7;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -3,6 +3,7 @@ package Tema_7_Ficheros.Ejercicios.Ejercicos2;
 import java.io.Serializable;
 
 public class Persona implements Serializable {
+
     private String nombre;
     private int edad;
 
@@ -29,9 +30,8 @@ public class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "Persona{" +
-                "nombre='" + nombre + '\'' +
-                ", edad=" + edad +
-                '}';
+        return "\n"+"Persona:" +"\n"+
+                "nombre=" + nombre + '\n' +
+                "edad=" + edad ;
     }
 }

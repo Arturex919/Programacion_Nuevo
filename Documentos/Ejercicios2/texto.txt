@@ -1,0 +1,4 @@
+Lee	un	fichero	de	texto	llamado	texto.txt
+	y	cuenta	cuántas	palabras
+hay	en	total.	Muestra	el	número	de	palabras
+	al	final

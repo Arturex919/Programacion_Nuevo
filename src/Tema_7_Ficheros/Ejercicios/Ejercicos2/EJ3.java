@@ -5,7 +5,7 @@ import java.io.FileReader;
 
 public class EJ3 {
     public static void main(String[] args) {
-        String filename="Documentos/Ejercicios2/texto.txt";
+        String filename="Documentos/frases.txt";
         int cont=0;
         try(BufferedReader br=new BufferedReader(new FileReader(filename))) {
 

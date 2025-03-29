@@ -7,17 +7,17 @@ import java.util.Scanner;
 public class EJ6 {
     public static void main(String[] args) {
         ArrayList<Persona> listaPersonas = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         String nombre;
 
-        System.out.print("Ingrese un nombre (o 'fin' para detenerse): ");
-        nombre = scanner.nextLine();
+        System.out.println("Ingrese un nombre (o 'fin' para detenerse): ");
+        nombre = in.nextLine();
 
         while (!nombre.equalsIgnoreCase("fin")) {
-            System.out.print("Edad: ");
+            System.out.println("Edad: ");
             int edad;
             try {
-                edad = Integer.parseInt(scanner.nextLine());//conviertes el int a String
+                edad = Integer.parseInt(in.nextLine());//conviertes el int a String
             } catch (NumberFormatException e) {
                 System.out.println("Edad no válida. Inténtalo de nuevo.");
                 continue; // Vuelve a pedir el nombre y edad correctamente
@@ -27,7 +27,7 @@ public class EJ6 {
 
             // Pedir el siguiente nombre
             System.out.print("Ingrese otro nombre (o 'fin' para detenerse): ");
-            nombre = scanner.nextLine();
+            nombre = in.nextLine();
         }
 
 

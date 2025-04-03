@@ -6,11 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 import java.io.FileReader;
-
-import static java.lang.System.in;
 
 public class Funko_Main {
     public static String fileName = "Documentos/Ejercicios3/funkos.csv";
@@ -30,6 +27,11 @@ public class Funko_Main {
                 }
                 case 2->{
                     eliminarFunko(funkos,in);
+                    loadFunko();
+                    saveFunko(funkos);
+                }
+                case 3->{
+
                 }
             }
         } while (opcion != 8);
@@ -71,7 +73,7 @@ public class Funko_Main {
                     Funko funkoAniadido = new Funko(cod, nombre, modelo, precio, fecha);
                     if (!funkos.contains(funkoAniadido)) {
                         funkos.add(funkoAniadido);
-                        saveFunko();
+                        saveFunko(funkos);
                         System.out.println(funkoAniadido.toString());
 
                     } else {
@@ -87,8 +89,9 @@ public class Funko_Main {
         }
     }
 
-    public static void saveFunko() {
-        try (BufferedWriter br = new BufferedWriter(new FileWriter(fileName,true))) {//el true es para que no se sobreescriba todo
+
+    public static void saveFunko(ArrayList<Funko> funkos) {
+        try (BufferedWriter br = new BufferedWriter(new FileWriter(fileName))) {//el true es para que no se sobreescriba todo
             for (Funko lee : funkos)
                 br.write(lee.getCod()+","+lee.getNombre()+","+
                         lee.getModelo()+","+
@@ -112,11 +115,14 @@ public class Funko_Main {
     }
 
         public static void eliminarFunko (ArrayList<Funko> funkos,Scanner in){
-            System.out.println("Nombre del funko a eliminar");
-            String remove = in.nextLine();
-            if (remove.equalsIgnoreCase(remove)) {
-                funkos.remove(remove);
-            }
+        in.nextLine();
+            System.out.println("COD del funko a eliminar");
+            String remove = in.next();
+            //nota
+            //funko es una variable temporal que solo usas dentor del parentesis,
+            // no existe fuera del parentesis
+            funkos.removeIf(funko->funko.getCod().equalsIgnoreCase(remove));
+
         }
 
     }

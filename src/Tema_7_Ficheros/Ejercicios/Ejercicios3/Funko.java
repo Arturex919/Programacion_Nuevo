@@ -2,6 +2,7 @@ package Tema_7_Ficheros.Ejercicios.Ejercicios3;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 public class Funko implements Serializable {
     private String cod;
@@ -66,12 +67,22 @@ public class Funko implements Serializable {
     public String toCSV() {
         return cod + "," + nombre + "," + modelo + "," + precio + "," + fechaLanzamiento;
     }
-    // Método para crear un Funko a partir de una línea CSV
     public static Funko fromCSV(String csvLine) {
-        String[] values = csvLine.split(",");//es para separa el csv
-        //le das los valores para que se convierta en un funko
-        return new Funko(values[0], values[1], values[2], Double.parseDouble(values[3]), LocalDate.parse(values[4]));
-    }
+        String[] values = csvLine.split(",");
+
+        try {
+            String cod = values[0];
+            String nombre = values[1];
+            String modelo = values[2];
+            double precio = Double.parseDouble(values[3]);  // Asegúrate de que el precio es un número válido
+            LocalDate fechaLanzamiento = LocalDate.parse(values[4]);  // Asegúrate de que la fecha tenga el formato correcto
+
+            return new Funko(cod, nombre, modelo, precio, fechaLanzamiento);//devuelve los funko
+        } catch (NumberFormatException | DateTimeParseException e) {
+            return null;
+        }
+        }
+
     @Override
     public String toString() {
         return "Funko"+"\n"+

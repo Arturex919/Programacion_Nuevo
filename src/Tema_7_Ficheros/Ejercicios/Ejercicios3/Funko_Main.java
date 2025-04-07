@@ -1,6 +1,5 @@
 package Tema_7_Ficheros.Ejercicios.Ejercicios3;
 
-import javax.swing.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.*;
@@ -13,6 +12,7 @@ public class Funko_Main {
         loadFunko();
         Scanner in = new Scanner(System.in);
         int opcion;
+        boolean salir=false;
         do {
             System.out.println("Ingresa una opcion");
             showMenu();
@@ -34,11 +34,15 @@ public class Funko_Main {
                 case 5 -> {
                     media(funkos);
                 }
-                case 6 ->{
+                case 6 -> {
                     mostrarModelos(funkos);
                 }
-                case 7 ->{
-                   /* mostarFunkoYear(funkos);*/
+                case 7 -> {
+                    mostarFunkoYear(funkos);
+                }
+                case 8->{
+                    System.out.println("Hasta luego");
+                    salir=true;
                 }
             }
         } while (opcion != 8);
@@ -52,6 +56,7 @@ public class Funko_Main {
         System.out.println("5) Mostrar la media de precios de los funkos");
         System.out.println("6) Mostrar funko agrupados por modelos");
         System.out.println("7) Mostrar funko del 2023");
+        System.out.println("8) Salir");
     }
 
     public static void aniadeFunko(ArrayList<Funko> funkos, Scanner in) {
@@ -157,6 +162,8 @@ public class Funko_Main {
     public static void funkoCostoso(ArrayList<Funko> funkos) {
         Funko funkoMoney = funkos.get(0);
         for (Funko funkoCaro : funkos) {
+            // busca el funko el precio mas caro de todos y
+            // despues lo compara compara con el precio de la variable
             if (funkoCaro != null && funkoCaro.getPrecio() > funkoMoney.getPrecio()) {
                 funkoMoney = funkoCaro;
             }
@@ -184,23 +191,35 @@ public class Funko_Main {
             System.out.println(resulut);
         }
     }
-    //correjir bien
-    public static void mostrarModelos(ArrayList<Funko>funkos) {
+
+    public static void mostrarModelos(ArrayList<Funko> funkos) {
         Map<String, List<Funko>> modeloFunko = new HashMap<>();
-        for (Funko modelos : funkos) {
-            String personaje = modelos.getModelo();
-            modeloFunko.putIfAbsent(personaje, new ArrayList<>());
-            modeloFunko.get(personaje).add(modelos);
+
+        for (Funko funkoss : funkos) {
+            modeloFunko.putIfAbsent(funkoss.getModelo(), new ArrayList<>());
+            modeloFunko.get(funkoss.getModelo()).add(funkoss);
         }
-        for (String modeloPersonaje : modeloFunko.keySet()) {//lo cojes de la llave del arrayList
-            System.out.println("Modelo: " + modeloPersonaje);
-            //el for-each lo haces con el la llave anterior del for
-            for (Funko personajes : modeloFunko.get(modeloPersonaje)) {
-                System.out.println(" -" + personajes);
+
+        for (String modelo : modeloFunko.keySet()) {
+            System.out.println("Modelo: " + modelo);
+            for (Funko funkoModelo : modeloFunko.get(modelo)) {
+                System.out.println(" - " + funkoModelo.getNombre() + "\n " + funkoModelo.getModelo());
             }
         }
     }
+
+    public static void mostarFunkoYear(ArrayList<Funko> funkos) {
+
+        for (Funko funko : funkos) {
+            if (funko.getFechaLanzamiento().getYear()==2023){
+                System.out.println("Nombre: "+funko.getNombre()+"\n"+"Modelo: "+funko.getModelo()+"\n"+
+                       "Precio: "+ funko.getPrecio()+"\n"+"Año: "+funko.getFechaLanzamiento() );
+            }
+
+        }
     }
+
+}
 
 
 

@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
 public class Funko implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String cod;
     private String nombre;
     private String modelo;

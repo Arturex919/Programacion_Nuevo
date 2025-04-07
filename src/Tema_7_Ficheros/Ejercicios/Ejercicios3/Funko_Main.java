@@ -1,13 +1,14 @@
 package Tema_7_Ficheros.Ejercicios.Ejercicios3;
 
+import javax.swing.*;
 import java.io.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Funko_Main {
     public static String fileName = "Documentos/Ejercicios3/funkos.csv";
     public static ArrayList<Funko> funkos = new ArrayList<>();
+
     public static void main(String[] args) {
         loadFunko();
         Scanner in = new Scanner(System.in);
@@ -27,8 +28,17 @@ public class Funko_Main {
                 case 3 -> {
                     mostrarFunko(funkos);
                 }
-                case 4->{
+                case 4 -> {
                     funkoCostoso(funkos);
+                }
+                case 5 -> {
+                    media(funkos);
+                }
+                case 6 ->{
+                    mostrarModelos(funkos);
+                }
+                case 7 ->{
+                   /* mostarFunkoYear(funkos);*/
                 }
             }
         } while (opcion != 8);
@@ -89,7 +99,7 @@ public class Funko_Main {
 
 
     public static void saveFunko(ArrayList<Funko> funkos) {
-        try (BufferedWriter br = new BufferedWriter(new FileWriter(fileName,true))) {//el true es para que no se sobreescriba todo
+        try (BufferedWriter br = new BufferedWriter(new FileWriter(fileName, true))) {//el true es para que no se sobreescriba todo
             for (Funko lee : funkos)
                 br.write(lee.getCod() + "," + lee.getNombre() + "," +
                         lee.getModelo() + "," +
@@ -105,11 +115,11 @@ public class Funko_Main {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String linea;
             while ((linea = reader.readLine()) != null) {
-               // Intentar crear un Funko desde la línea CSV
-                    Funko funko = Funko.fromCSV(linea);
-                    if (funko != null) {
-                        funkos.add(funko);  // Solo añadir si no es null
-                    }
+                // Intentar crear un Funko desde la línea CSV
+                Funko funko = Funko.fromCSV(linea);
+                if (funko != null) {
+                    funkos.add(funko);  // Solo añadir si no es null
+                }
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -125,37 +135,72 @@ public class Funko_Main {
         //funko es una variable temporal que solo usas dentor del parentesis,
         // no existe fuera del parentesis
         //removeIf lo borra si (funko -> funko ca a coger el cod y lo compara si esta para eliminar)
-        boolean eliminado= funkos.removeIf(funko -> funko.getCod().equalsIgnoreCase(remove));
-        if (eliminado){
+        boolean eliminado = funkos.removeIf(funko -> funko.getCod().equalsIgnoreCase(remove));
+        if (eliminado) {
             System.out.println("se ha eliminado");
             saveFunko(funkos);
-        }else{
+        } else {
             System.out.println("no eliminado");
         }
     }
-        public static void mostrarFunko(ArrayList<Funko> funkos){
+
+    public static void mostrarFunko(ArrayList<Funko> funkos) {
         if (funkos.isEmpty()) {
             System.out.println("no hay funko");
-        }else {
-            for (Funko funko:funkos){
+        } else {
+            for (Funko funko : funkos) {
                 System.out.println(funko.toString());
             }
         }
-        }
-        public static void funkoCostoso(ArrayList<Funko>funkos) {
-       Funko funkoMoney= funkos.get(0);
-       for (Funko funkoCaro:funkos){
-           if (funkoCaro !=null && funkoCaro.getPrecio() >funkoMoney.getPrecio()) {
-               funkoMoney = funkoCaro;
-           }
-       }
-            System.out.println("El Funko más caro es:");
-            System.out.println(funkoMoney);
+    }
 
+    public static void funkoCostoso(ArrayList<Funko> funkos) {
+        Funko funkoMoney = funkos.get(0);
+        for (Funko funkoCaro : funkos) {
+            if (funkoCaro != null && funkoCaro.getPrecio() > funkoMoney.getPrecio()) {
+                funkoMoney = funkoCaro;
+            }
         }
-        public static void media(ArrayList<Funko>funkos){
+        System.out.println("El Funko más caro es:");
+        System.out.println(funkoMoney);
 
+    }
+
+    public static void media(ArrayList<Funko> funkos) {
+        double suma = 0;
+        double media = 0;
+        double resulut;
+
+        if (funkos.isEmpty()) {
+            System.out.println("No hay funkos");
+        } else {
+            for (Funko media1 : funkos) {
+
+                suma += media1.getPrecio();
+                media++;
+            }
+            media = suma / funkos.size();
+            resulut = Math.round(media * 100.0) / 100.0;//es para que redonde y te muestre lo decimales
+            System.out.println(resulut);
         }
-}
+    }
+    //correjir bien
+    public static void mostrarModelos(ArrayList<Funko>funkos) {
+        Map<String, List<Funko>> modeloFunko = new HashMap<>();
+        for (Funko modelos : funkos) {
+            String personaje = modelos.getModelo();
+            modeloFunko.putIfAbsent(personaje, new ArrayList<>());
+            modeloFunko.get(personaje).add(modelos);
+        }
+        for (String modeloPersonaje : modeloFunko.keySet()) {//lo cojes de la llave del arrayList
+            System.out.println("Modelo: " + modeloPersonaje);
+            //el for-each lo haces con el la llave anterior del for
+            for (Funko personajes : modeloFunko.get(modeloPersonaje)) {
+                System.out.println(" -" + personajes);
+            }
+        }
+    }
+    }
+
 
 

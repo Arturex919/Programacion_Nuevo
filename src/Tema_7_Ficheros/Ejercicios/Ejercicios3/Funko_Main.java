@@ -20,7 +20,7 @@ public class Funko_Main {
 
             switch (opcion) {
                 case 1 -> {
-                    aniadeFunko(funkos, in);
+                    aniadeFunko(funkos, in); //no es necesario pasar el ArrayList funkos como parametro. Al ser variable global, puede ser tratado por cualquier método dentro de la calse Funko_Main
                 }
                 case 2 -> {
                     eliminarFunko(funkos, in);
@@ -85,7 +85,7 @@ public class Funko_Main {
                     Funko funkoAniadido = new Funko(cod, nombre, modelo, precio, fecha);
                     if (!funkos.contains(funkoAniadido)) {
                         funkos.add(funkoAniadido);
-                        saveFunko(funkos);
+                        saveFunko(funkos); //guardar solo el funko nuevo que acabamos de añadir, no todo el AraryList
 
                         System.out.println(funkoAniadido.toString());
 
@@ -105,12 +105,14 @@ public class Funko_Main {
 
     public static void saveFunko(ArrayList<Funko> funkos) {
         try (BufferedWriter br = new BufferedWriter(new FileWriter(fileName, true))) {//el true es para que no se sobreescriba todo
-            for (Funko lee : funkos)
+            for (Funko lee : funkos) {
+                br.newLine();
                 br.write(lee.getCod() + "," + lee.getNombre() + "," +
                         lee.getModelo() + "," +
                         lee.getPrecio() + "," +
                         lee.getFechaLanzamiento());
-            br.newLine();
+
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -195,9 +197,9 @@ public class Funko_Main {
     public static void mostrarModelos(ArrayList<Funko> funkos) {
         Map<String, List<Funko>> modeloFunko = new HashMap<>();
 
-        for (Funko funkoss : funkos) {
-            modeloFunko.putIfAbsent(funkoss.getModelo(), new ArrayList<>());
-            modeloFunko.get(funkoss.getModelo()).add(funkoss);
+        for (Funko funko : funkos) {
+            modeloFunko.putIfAbsent(funko.getModelo(), new ArrayList<>());
+            modeloFunko.get(funko.getModelo()).add(funko);
         }
 
         for (String modelo : modeloFunko.keySet()) {

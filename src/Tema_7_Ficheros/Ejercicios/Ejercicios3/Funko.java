@@ -66,7 +66,7 @@ public class Funko implements Serializable {
 
     // Método para convertir el objeto a formato CSV
     public String toCSV() {
-        return cod + "," + nombre + "," + modelo + "," + precio + "," + fechaLanzamiento;
+        return "\n"+cod + "," + nombre + "," + modelo + "," + precio + "," + fechaLanzamiento;
     }
     public static Funko fromCSV(String csvLine) {
         String[] values = csvLine.split(",");
@@ -80,6 +80,7 @@ public class Funko implements Serializable {
 
             return new Funko(cod, nombre, modelo, precio, fechaLanzamiento);//devuelve los funko
         } catch (NumberFormatException | DateTimeParseException e) {
+            System.out.println(e.getMessage());
             return null;
         }
         }

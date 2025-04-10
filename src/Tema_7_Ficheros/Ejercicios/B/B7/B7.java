@@ -15,6 +15,7 @@ public class B7 {
 
         try {
             File archivo = new File(filename);
+         /*solo como no te da*/
             Scanner in = new Scanner(archivo, "UTF-8"); // Leer archivo con codificación UTF-8
 
             while (in.hasNextLine()) {

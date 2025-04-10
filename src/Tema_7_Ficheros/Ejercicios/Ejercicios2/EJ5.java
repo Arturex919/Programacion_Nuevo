@@ -1,4 +1,4 @@
-package Tema_7_Ficheros.Ejercicios.Ejercicos2;
+package Tema_7_Ficheros.Ejercicios.Ejercicios2;
 
 import java.io.*;
 

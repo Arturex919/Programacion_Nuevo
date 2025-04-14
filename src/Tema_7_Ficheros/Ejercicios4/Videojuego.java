@@ -1,9 +1,10 @@
 package Tema_7_Ficheros.Ejercicios4;
 
-public class Videojuego {
+import java.io.Serializable;
+
+public abstract class Videojuego implements Serializable {
    private String titulo;
    private String plataforma;
-   private String tipo;
    private int nota;
 
     public String getTitulo() {
@@ -22,27 +23,34 @@ public class Videojuego {
         this.plataforma = plataforma;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
     public int getNota() {
         return nota;
     }
 
-    public void setNota(int nota) {
-        this.nota = nota;
+    public void setNota(int nota)  {
+       try {
+           if (nota < 1 || nota > 10)
+               System.out.println("La nota debe estar entre 1 y 10.");
+       } catch (NotaInvalida e) {
+           throw new RuntimeException(e);
+       }
     }
 
-    public Videojuego(String titulo, String plataforma, String tipo, int nota) {
+    public Videojuego(String titulo, String plataforma , int nota) {
         this.titulo = titulo;
         this.plataforma = plataforma;
-        this.tipo = tipo;
         this.nota = nota;
     }
 
-    public static void getTipo(){
+    public abstract String getTipo();
+    @Override
+    public String toString() {
+        return "Título: " + titulo +
+                ", Plataforma: " + plataforma +
+                ", Nota: " + nota +
+                ", Tipo: " + getTipo();
     }
+
 
 
 }

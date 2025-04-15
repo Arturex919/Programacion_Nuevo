@@ -5,6 +5,7 @@ import Tema4_POO_INTRODUCCION.Tema3.EJ5_RedSocial.Publicacion;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.Scanner;
 
 import static java.lang.System.in;
@@ -13,6 +14,7 @@ public  class Funciones  {
 
     public static final String  FILE_TXT ="Documentos/Ejercicios4/ranking.txt";
     public static final String FILE_BIN = "Documentos/Ejercicios4/ranking.bin";
+    public static final String FILE_LOG = "Documentos/Ejercicios4/errores.log";
 
     public  static  void showMenu() {
         System.out.println("================ MENU ==================");
@@ -23,6 +25,7 @@ public  class Funciones  {
         System.out.println("5. Cargar ranking desde fichero.        ");
         System.out.println("6. Exportar ranking a texto             ");
         System.out.println("7. Jugar demo");
+        System.out.println("8. Ver log de errores.");
         System.out.println("0.Salir");
     }
 
@@ -60,6 +63,7 @@ public  class Funciones  {
 
                         }catch (NotaInvalida e){
                                 System.out.println(e);
+                                logError(e);
                             }
                         }
                         case 2 -> {
@@ -79,6 +83,8 @@ public  class Funciones  {
                             juego.add(virtuales);
                         }catch (NotaInvalida e) {
                                 System.out.println(e);
+                                logError(e);
+
                             }
                 }
                         case 3 -> {
@@ -113,10 +119,12 @@ public  class Funciones  {
                 if (eliminado) {
                     System.out.println("JUego eliminado " + tituloJuego);
                 } else {
-                    try {
+                    try {//poner el try arriba del método
                         throw new JuegoNoEncontrado("problemas en eliminar el juego");
                     } catch (JuegoNoEncontrado e) {
                         System.out.println(e.getMessage());
+                        logError(e);
+
                     }
                 }
             }
@@ -128,7 +136,8 @@ public  class Funciones  {
             bin.writeObject(juego);
             System.out.println("Juegos guardados correctamente");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+            logError(e);
         }
     }
     public static void cargarBinario(ArrayList<Videojuego> juego) {
@@ -140,7 +149,8 @@ public  class Funciones  {
 
             System.out.println("Cargado perfectamente");
         } catch (IOException|ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            e.getMessage();
+            logError(e);
         }
     }
     public static void exportarTexto(ArrayList<Videojuego> juegos) {
@@ -151,21 +161,68 @@ public  class Funciones  {
             System.out.println("Ranking exportado a texto.");
         } catch (IOException e) {
             System.out.println("Error al exportar: " + e.getMessage());
+            logError(e);
         }
     }
-    public  static void jugarDemo(ArrayList<Videojuego>juego,Scanner in){
-        System.out.println("ingresa el titulo que deseas jugar ");
-        String titulo=in.nextLine();
-        boolean encontrado=false;
-        for (Videojuego juegos:juego){
-            /*instanceof instacias la interfaz*/
-            if (juegos.getTitulo().equalsIgnoreCase(titulo)&& juegos instanceof IJugable){
-                ((IJugable)juegos).JugarDemo();
-                encontrado=true;
+    public static void jugarDemo(ArrayList<Videojuego> juego, Scanner in) {
+        System.out.println("Ingresa el título que deseas jugar:");
+        String titulo = in.nextLine().trim();
+        in.nextLine();
+
+        boolean encontrado = false;
+
+        for (Videojuego juegos : juego) {
+            if (juegos.getTitulo().equalsIgnoreCase(titulo) && juegos instanceof IJugable) {
+                ((IJugable) juegos).JugarDemo();
+                encontrado = true;
             }
-            if (!encontrado){
-                System.out.println("Juego no encontrado o no jugable.");
+        }
+
+        if (!encontrado) {
+            System.out.println("Juego no encontrado o no jugable.");
+        }
+    }
+
+
+    public static void logError(Exception e) {
+        try {
+            // Crear directorios si no existen
+            File logFile = new File(FILE_LOG);
+            logFile.getParentFile().mkdir();
+
+            try (FileWriter fw = new FileWriter(logFile, true);
+                 PrintWriter pw = new PrintWriter(fw)) {
+
+                pw.println("[" + new Date() + "] " + e.toString());
+                for (StackTraceElement ste : e.getStackTrace()) {
+                    pw.println("\tat " + ste);
+                }
+                pw.println("---------------------------------------------------");
+
             }
+        } catch (IOException ioEx) {
+            System.out.println("No se pudo escribir en el log de errores.");
+        }
+    }
+
+    public static void mostrarLog() {
+        File log = new File(FILE_LOG);
+
+        if (!log.exists()) {
+            System.out.println("No hay errores registrados.");
+            return;
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_LOG))) {
+            String linea;
+            System.out.println("===== LOG DE ERRORES =====");
+            while ((linea = br.readLine()) != null) {
+                System.out.println(linea);
+            }
+            System.out.println("==========================");
+        } catch (IOException e) {
+            System.out.println("Error al leer el log.");
+            logError(e);
         }
     }
 }

@@ -22,6 +22,7 @@ public class VideojuegoMain {
                 case 5 -> Funciones.cargarBinario(juegos);
                 case 6->Funciones.exportarTexto(juegos);
                 case 7->Funciones.jugarDemo(juegos,in);
+                case 8->Funciones.mostrarLog();
                 case 0 -> System.out.println("¡Hasta luego!");
                 default -> System.out.println("Opción inválida.");
             }

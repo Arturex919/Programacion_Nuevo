@@ -107,35 +107,35 @@ public class Funciones {
             }
         }
     }
-
+/*cuando vayas a eliminar un juego o algos no lo hagas en el for each*/
     public static void eliminaJuego(ArrayList<Videojuego> juego, Scanner in) {
-        if (juego.isEmpty()) {
-            System.out.println("Lista vacía.");
-            return;
-        }
-
-        System.out.println("Juegos disponibles:");
-        for (Videojuego v : juego) {
-            System.out.println("- " + v.getTitulo());
-        }
-
-        System.out.println("Introduce el título del juego a eliminar:");
-        String tituloJuego = in.nextLine().trim();
-        in.nextLine();
-
-        boolean eliminado = juego.removeIf(j -> j.getTitulo().equalsIgnoreCase(tituloJuego));
-
-        if (eliminado) {
-            System.out.println("Juego eliminado correctamente: " + tituloJuego);
-        } else {
             try {
-                throw new JuegoNoEncontrado("No se encontró el juego: " + tituloJuego);
+                for (Videojuego titul : juego) {
+                    System.out.println(titul);
+                }
+                if (juego.isEmpty()) {
+                    System.out.println("Lista vacía");
+                } else {
+                    System.out.println("Añade el título del juego a eliminar:");
+                    in.nextLine(); // limpiar buffer si antes hubo un nextInt, etc.
+                    String tituloJuego = in.nextLine().trim();
+
+                    boolean eliminado = juego.removeIf(j -> j.getTitulo().equalsIgnoreCase(tituloJuego));
+
+                    if (eliminado) {
+                        System.out.println("Juego eliminado: " + tituloJuego);
+                    } else {
+
+                        throw new JuegoNoEncontrado("No se encontró el juego con el título proporcionado.");
+                    }
+                }
             } catch (JuegoNoEncontrado e) {
                 System.out.println(e.getMessage());
                 logError(e);
+
             }
         }
-    }
+
 
 
     /*Binario con Objetos no te olvides*/

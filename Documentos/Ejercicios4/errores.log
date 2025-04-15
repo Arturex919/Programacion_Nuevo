@@ -10,3 +10,27 @@
 	at Tema_7_Ficheros.Ejercicios4.Funciones.eliminaJuego(Funciones.java:123)
 	at Tema_7_Ficheros.Ejercicios4.VideojuegoMain.main(VideojuegoMain.java:20)
 ---------------------------------------------------
+[Tue Apr 15 13:44:13 CEST 2025] Tema_7_Ficheros.Ejercicios4.JuegoNoEncontrado: problemas en eliminar el juego
+	at Tema_7_Ficheros.Ejercicios4.Funciones.eliminaJuego(Funciones.java:123)
+	at Tema_7_Ficheros.Ejercicios4.VideojuegoMain.main(VideojuegoMain.java:20)
+---------------------------------------------------
+[Tue Apr 15 13:50:26 CEST 2025] Tema_7_Ficheros.Ejercicios4.JuegoNoEncontrado: No se encontró el juego: 
+	at Tema_7_Ficheros.Ejercicios4.Funciones.eliminaJuego(Funciones.java:131)
+	at Tema_7_Ficheros.Ejercicios4.VideojuegoMain.main(VideojuegoMain.java:20)
+---------------------------------------------------
+[Tue Apr 15 13:50:57 CEST 2025] Tema_7_Ficheros.Ejercicios4.JuegoNoEncontrado: No se encontró el juego: 
+	at Tema_7_Ficheros.Ejercicios4.Funciones.eliminaJuego(Funciones.java:132)
+	at Tema_7_Ficheros.Ejercicios4.VideojuegoMain.main(VideojuegoMain.java:20)
+---------------------------------------------------
+[Tue Apr 15 13:51:18 CEST 2025] Tema_7_Ficheros.Ejercicios4.JuegoNoEncontrado: No se encontró el juego: 
+	at Tema_7_Ficheros.Ejercicios4.Funciones.eliminaJuego(Funciones.java:132)
+	at Tema_7_Ficheros.Ejercicios4.VideojuegoMain.main(VideojuegoMain.java:20)
+---------------------------------------------------
+[Tue Apr 15 13:51:44 CEST 2025] Tema_7_Ficheros.Ejercicios4.JuegoNoEncontrado: No se encontró el juego: 
+	at Tema_7_Ficheros.Ejercicios4.Funciones.eliminaJuego(Funciones.java:132)
+	at Tema_7_Ficheros.Ejercicios4.VideojuegoMain.main(VideojuegoMain.java:20)
+---------------------------------------------------
+[Tue Apr 15 13:51:50 CEST 2025] Tema_7_Ficheros.Ejercicios4.JuegoNoEncontrado: No se encontró el juego: 
+	at Tema_7_Ficheros.Ejercicios4.Funciones.eliminaJuego(Funciones.java:132)
+	at Tema_7_Ficheros.Ejercicios4.VideojuegoMain.main(VideojuegoMain.java:20)
+---------------------------------------------------

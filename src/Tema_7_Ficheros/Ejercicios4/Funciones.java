@@ -10,13 +10,13 @@ import java.util.Scanner;
 
 import static java.lang.System.in;
 
-public  class Funciones  {
+public class Funciones {
 
-    public static final String  FILE_TXT ="Documentos/Ejercicios4/ranking.txt";
+    public static final String FILE_TXT = "Documentos/Ejercicios4/ranking.txt";
     public static final String FILE_BIN = "Documentos/Ejercicios4/ranking.bin";
     public static final String FILE_LOG = "Documentos/Ejercicios4/errores.log";
 
-    public  static  void showMenu() {
+    public static void showMenu() {
         System.out.println("================ MENU ==================");
         System.out.println("1. Añadir videojuego (físico o digital).");
         System.out.println("2. Mostrar ranking completo.            ");
@@ -43,96 +43,104 @@ public  class Funciones  {
 
             switch (opcion) {
 
-                        case 1 -> {
-                            try {
+                case 1 -> {
+                    try {
 
-                            System.out.println("Ingresa el titulo del Juego");
-                            String titulo = in.nextLine();
-                            System.out.println("Ingresa el tipo de plataforma");
-                            String plataforma = in.nextLine();
-                            System.out.println("Ingresa la nota");
-                            int nota = in.nextInt();
-                            System.out.println("Ingresa la tienda donde ");
-                            String tiendaCompra = in.nextLine();
-                            in.nextLine();
-                            System.out.println("escoje el Estado juego");
-                            String estado = in.nextLine();
-                            VideojuegoFisico juegoF = new VideojuegoFisico(titulo, plataforma, nota, tiendaCompra, estado);
-                            juego.add(juegoF);
-                            System.out.println("Juego añadido correctamente");
+                        System.out.println("Ingresa el titulo del Juego");
+                        String titulo = in.nextLine();
+                        System.out.println("Ingresa el tipo de plataforma");
+                        String plataforma = in.nextLine();
+                        System.out.println("Ingresa la nota");
+                        int nota = in.nextInt();
+                        System.out.println("Ingresa la tienda donde ");
+                        String tiendaCompra = in.nextLine();
+                        in.nextLine();
+                        System.out.println("escoje el Estado juego");
+                        String estado = in.nextLine();
+                        VideojuegoFisico juegoF = new VideojuegoFisico(titulo, plataforma, nota, tiendaCompra, estado);
+                        juego.add(juegoF);
+                        System.out.println("Juego añadido correctamente");
 
-                        }catch (NotaInvalida e){
-                                System.out.println(e);
-                                logError(e);
-                            }
-                        }
-                        case 2 -> {
-                            try {
-                            System.out.println("Ingresa el titulo del Juego");
-                            String titulo = in.nextLine();
-                            System.out.println("Ingresa el tipo de plataforma");
-                            String plataforma = in.nextLine();
-                            System.out.println("Ingresa la nota");
-                            int nota = in.nextInt();
-                            System.out.println("Ingresa la tienda donde ");
-                            String tiendaCompra = in.nextLine();
-                            in.nextLine();
-                            System.out.println("ingresa los GB del juego(SOLO NUMEROS)");
-                            double tamaniGB = in.nextInt();
-                            VideojuegoDigital virtuales = new VideojuegoDigital(titulo, plataforma, nota, tiendaCompra, tamaniGB);
-                            juego.add(virtuales);
-                        }catch (NotaInvalida e) {
-                                System.out.println(e);
-                                logError(e);
-
-                            }
+                    } catch (NotaInvalida e) {
+                        System.out.println(e);
+                        logError(e);
+                    }
                 }
-                        case 3 -> {
-                            System.out.println("Adios");
-                            sal = true;
-                        }
-
-            }
-        }while (opcion != 3) ;
-    }
-    //ver porq no se muestra la nota
-    public static void mostarRakings(ArrayList<Videojuego> juego){
-        juego.sort(Comparator.comparingInt(Videojuego::getNota));/*orden de mayot a menor*/
-        if (juego.isEmpty()){
-            System.out.println("lista vacia");
-        }else {
-            for (Videojuego raking : juego) {
-                System.out.println(raking.getNota()+" - "+raking.getTitulo());
-            }
-        }
-    }
-    public static void eliminaJuego(ArrayList<Videojuego>juego,Scanner in) {
-        if (juego.isEmpty()) {
-            System.out.println("lista vacia");
-        } else {
-            for (Videojuego eliminadoJuego : juego) {
-                System.out.println(eliminadoJuego);
-                System.out.println("");
-                System.out.println("Añade el titulo al juego a eliminar");
-                String tituloJuego = in.nextLine().trim();
-                boolean eliminado = juego.removeIf(j -> j.getTitulo().equalsIgnoreCase(tituloJuego));
-                if (eliminado) {
-                    System.out.println("JUego eliminado " + tituloJuego);
-                } else {
-                    try {//poner el try arriba del método
-                        throw new JuegoNoEncontrado("problemas en eliminar el juego");
-                    } catch (JuegoNoEncontrado e) {
-                        System.out.println(e.getMessage());
+                case 2 -> {
+                    try {
+                        System.out.println("Ingresa el titulo del Juego");
+                        String titulo = in.nextLine();
+                        System.out.println("Ingresa el tipo de plataforma");
+                        String plataforma = in.nextLine();
+                        System.out.println("Ingresa la nota");
+                        int nota = in.nextInt();
+                        System.out.println("Ingresa la tienda donde ");
+                        String tiendaCompra = in.nextLine();
+                        in.nextLine();
+                        System.out.println("ingresa los GB del juego(SOLO NUMEROS)");
+                        double tamaniGB = in.nextInt();
+                        VideojuegoDigital virtuales = new VideojuegoDigital(titulo, plataforma, nota, tiendaCompra, tamaniGB);
+                        juego.add(virtuales);
+                    } catch (NotaInvalida e) {
+                        System.out.println(e);
                         logError(e);
 
                     }
                 }
+                case 3 -> {
+                    System.out.println("Adios");
+                    sal = true;
+                }
+
+            }
+        } while (opcion != 3);
+    }
+
+    //ver porq no se muestra la nota
+    public static void mostarRakings(ArrayList<Videojuego> juego) {
+        juego.sort(Comparator.comparingInt(Videojuego::getNota));/*orden de mayot a menor*/
+        if (juego.isEmpty()) {
+            System.out.println("lista vacia");
+        } else {
+            for (Videojuego raking : juego) {
+                System.out.println(raking.getNota() + " - " + raking.getTitulo());
             }
         }
     }
+
+    public static void eliminaJuego(ArrayList<Videojuego> juego, Scanner in) {
+        if (juego.isEmpty()) {
+            System.out.println("Lista vacía.");
+            return;
+        }
+
+        System.out.println("Juegos disponibles:");
+        for (Videojuego v : juego) {
+            System.out.println("- " + v.getTitulo());
+        }
+
+        System.out.println("Introduce el título del juego a eliminar:");
+        String tituloJuego = in.nextLine().trim();
+        in.nextLine();
+
+        boolean eliminado = juego.removeIf(j -> j.getTitulo().equalsIgnoreCase(tituloJuego));
+
+        if (eliminado) {
+            System.out.println("Juego eliminado correctamente: " + tituloJuego);
+        } else {
+            try {
+                throw new JuegoNoEncontrado("No se encontró el juego: " + tituloJuego);
+            } catch (JuegoNoEncontrado e) {
+                System.out.println(e.getMessage());
+                logError(e);
+            }
+        }
+    }
+
+
     /*Binario con Objetos no te olvides*/
-    public  static  void guardaBinario(ArrayList<Videojuego>juego) {
-        try(ObjectOutputStream bin=new ObjectOutputStream(new FileOutputStream(FILE_BIN))){
+    public static void guardaBinario(ArrayList<Videojuego> juego) {
+        try (ObjectOutputStream bin = new ObjectOutputStream(new FileOutputStream(FILE_BIN))) {
             bin.writeObject(juego);
             System.out.println("Juegos guardados correctamente");
         } catch (IOException e) {
@@ -140,19 +148,21 @@ public  class Funciones  {
             logError(e);
         }
     }
+
     public static void cargarBinario(ArrayList<Videojuego> juego) {
-        try (ObjectInputStream binlee=new ObjectInputStream(new FileInputStream(FILE_BIN))){
+        try (ObjectInputStream binlee = new ObjectInputStream(new FileInputStream(FILE_BIN))) {
             /*HACEMOS OTRA LISTA PARA USARLA COMO VARIABLE*/
-            ArrayList<Videojuego>carga=(ArrayList<Videojuego>)binlee.readObject();
+            ArrayList<Videojuego> carga = (ArrayList<Videojuego>) binlee.readObject();
             juego.clear();
             juego.addAll(carga);
 
             System.out.println("Cargado perfectamente");
-        } catch (IOException|ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.getMessage();
             logError(e);
         }
     }
+
     public static void exportarTexto(ArrayList<Videojuego> juegos) {
         try (PrintWriter pw = new PrintWriter(new FileWriter(FILE_TXT))) {
             for (Videojuego v : juegos) {
@@ -164,6 +174,7 @@ public  class Funciones  {
             logError(e);
         }
     }
+
     public static void jugarDemo(ArrayList<Videojuego> juego, Scanner in) {
         System.out.println("Ingresa el título que deseas jugar:");
         String titulo = in.nextLine().trim();

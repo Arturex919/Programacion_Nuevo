@@ -1,4 +1,0 @@
-Título: 11, Plataforma: 11, Nota: 1, Tipo: Físico, Tienda: , Estado: 11
-Título: a, Plataforma: a, Nota: 1, Tipo: Físico, Tienda: , Estado: a
-Título: lol, Plataforma: pepe, Nota: 2, Tipo: Físico, Tienda: , Estado: pepe
-Título: leo, Plataforma: eooe, Nota: 3, Tipo: Digital, Tienda Online: , Tamaño: 32.0 GB

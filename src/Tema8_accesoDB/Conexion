@@ -1,0 +1,5 @@
+
+db.url=jdbc:postgresql://ad-postgres.cu6a0b4p2sni.us-east-1.rds.amazonaws.com:5432/hogwarts
+db.user=postgres
+db.password=admin123.
+

@@ -9,7 +9,7 @@ public class Ejercicio12 {
     public static void main(String[] args) throws SQLException, IOException {
         Connection conectado = DBconexion.conexion();
         String consulta = """
-                 INSERT INTO nombre,apellido,id_casa,anyo_curso,fecha_nacimiento
+                 INSERT INTO estudiante(nombre,apellido,id_casa,anyo_curso,fecha_nacimiento)
                  VALUES(?,?,?,?,?)
                 """;/*lo colocas en ?? para evitar ataques de sql*/
         /*con el preparedStatement podemos insertalo de manera mas segura y
@@ -24,9 +24,8 @@ public class Ejercicio12 {
         insertaValor.executeUpdate();/*actualiza las filas y ejecutas el insert */
         System.out.println("Estudiante añadido correctamente");
     }
-        String consulta2 = """
-                 String consulta = "SELECT FROM estudiante";
-                 """;
+        String consulta2 = "SELECT * FROM estudiante";
+
         Statement mensajero = conectado.createStatement();
         ResultSet result = mensajero.executeQuery(consulta2);
         while (result.next()) {

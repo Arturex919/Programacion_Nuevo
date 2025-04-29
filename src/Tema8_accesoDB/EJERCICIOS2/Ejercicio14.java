@@ -3,35 +3,19 @@ package Tema8_accesoDB.EJERCICIOS2;
 import Tema8_accesoDB.DBconexion;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class Ejercicio14 {
-    public static void main(String[] args) {
-        try {
-            Connection conectado = DBconexion.conexion();
-            Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws SQLException, IOException {
 
-            System.out.print("Ingrese el nombre del estudiante que desea borrar: ");
-            String nombreBorrar = scanner.nextLine(); // Leer desde la terminal
+        Connection conectado = DBconexion.conexion();
+        String consulta= """
+                DELETE FROM estudiante WHERE nombre='Nymphadora' AND apellido = 'Tonks'
+                """;
+        Statement mensajero=conectado.createStatement();
+        int filasEliminadas = mensajero.executeUpdate(consulta);
+            System.out.println("Se ha actualizo la fila "+filasEliminadas);
 
-            String consulta = "DELETE FROM estudiante WHERE nombre = ?";
-
-            try (PreparedStatement borrarValor = conectado.prepareStatement(consulta)) {
-                borrarValor.setString(1, nombreBorrar);
-
-                int filasEliminadas = borrarValor.executeUpdate();
-
-                if (filasEliminadas > 0) {
-                    System.out.println("Estudiante eliminado correctamente.");
-                } else {
-                    System.out.println("No se encontró un estudiante con ese nombre.");
-                }
-            }
-        } catch (SQLException | IOException e) {
-            System.out.println("Error de base de datos: " + e.getMessage());
-        }
     }
 }

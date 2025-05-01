@@ -16,6 +16,7 @@ public class Ejercicio2 {
 
                 String consulta = "SELECT nombre,apellido,fecha_nacimiento FROM estudiante WHERE fecha_nacimiento >'1980-01-01'";
 
+               //consulta sencillas usas esta
                 Statement mensajero = coneccion.createStatement();
 
                 //no te olvides colocar el executeQuery

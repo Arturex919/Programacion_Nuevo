@@ -11,7 +11,7 @@ public class DBconexion {
 public  static Connection conexion() throws IOException, SQLException {
     Connection conectado=null;
     Properties propietario=new Properties();//nos ayuda a cargar las credenciales
-    FileInputStream inputDB=new FileInputStream("src/Tema8_accesoDB/conexion");
+    FileInputStream inputDB=new FileInputStream("Conexion.properties");
     propietario.load(inputDB);
     //solo va a tomar la url,el user y la contraseña no es neceario poner toda la direccion completa
     String url = propietario.getProperty("db.url");

@@ -23,7 +23,7 @@ public class ejercicios1 {
             String nombre = result.getString("forename");
             String apellido = result.getString("surname");
 
-            System.out.println("Profesores: " + nombre + " " + apellido);
+            System.out.println("Pilotos: " + nombre + " " + apellido);
     }
 }
 }

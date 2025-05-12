@@ -133,7 +133,7 @@ public class pilotosCrud {
         System.out.println("Nuevo piloto creado");
     }
 //ReadPilot, recibe un entero y devuelve un piloto de la base de datos.
-    public static void leerPiloto(Connection connection, int id) throws SQLException {
+    public static pilotos leerPiloto(Connection connection, int id) throws SQLException {
         String sql = """
                 SELECT* FROM drivers WHERE driverid= ?;
                 """;
@@ -145,7 +145,7 @@ public class pilotosCrud {
                     String code= resultado.getString("code");
                     String nombre=  resultado.getString("forename");
                     String apellido=  resultado.getString("surname");
-                    Date fecha=  resultado.getDate("dob");
+                    LocalDate fecha= resultado.getDate("dob").toLocalDate();
                     String nacionalidad=  resultado.getString("nationality");
                     int constructorid=  resultado.getInt("constructorid");
                     String url=  resultado.getString("url");
@@ -159,10 +159,11 @@ public class pilotosCrud {
                             +"NACIONALIDAD: "+nacionalidad+"\n"+
                             "CONSTRUCTOR ID: "+constructorid+"\n"
                             +"URL: "+url);
-
+                return new pilotos(driverid, code, nombre, apellido, fecha, nacionalidad, constructorid, url);
             } else {
                 System.out.println("ERROR" + "\n"
                         + "no se encontro el ID del usuario: " + id);
+                return null;
             }
         }
     }

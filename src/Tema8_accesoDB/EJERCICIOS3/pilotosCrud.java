@@ -184,14 +184,14 @@ public class pilotosCrud {
                 pilotos pilotos1 = new pilotos();
 
                 // Usamos los métodos SET para asignar valores desde la base de datos
-                pilotos1.setDriverid(resultSet.getInt("driverid"));                  // ID del piloto
-                pilotos1.setCode(resultSet.getString("code"));                       // Código del piloto (puede ser abreviatura)
-                pilotos1.setForename(resultSet.getString("forename"));              // Nombre
-                pilotos1.setSurname(resultSet.getString("surname"));                // Apellido
-                pilotos1.setFecha(resultSet.getDate("dob").toLocalDate());          // Fecha de nacimiento convertida a LocalDate
-                pilotos1.setNationality(resultSet.getString("nationality"));        // Nacionalidad
-                pilotos1.setConstructorId(resultSet.getInt("constructorid"));       // ID del constructor/equipo
-                pilotos1.setUrl(resultSet.getString("url"));                         // Enlace a más información
+                pilotos1.setDriverid(resultSet.getInt("driverid"));
+                pilotos1.setCode(resultSet.getString("code"));
+                pilotos1.setForename(resultSet.getString("forename"));
+                pilotos1.setSurname(resultSet.getString("surname"));
+                pilotos1.setFecha(resultSet.getDate("dob").toLocalDate());
+                pilotos1.setNationality(resultSet.getString("nationality"));
+                pilotos1.setConstructorId(resultSet.getInt("constructorid"));
+                pilotos1.setUrl(resultSet.getString("url"));
 
                 // Agregamos el piloto ya lleno a la lista
                 pilotos.add(pilotos1);
@@ -269,9 +269,9 @@ public class pilotosCrud {
         String sql = """
                 SELECT c.constructorid AS equipo, c.name AS nombre_equipo,
                                    SUM(r.points) AS puntos
-                            FROM results r
-                            JOIN constructors c ON c.constructorid = c.constructorid
-                            JOIN races ra ON ra.raceid = r.raceid
+                            FROM drivers d
+                            JOIN constructors c ON c.constructorid = d.constructorid
+                            JOIN results r ON r.driverid = d.driverid
                             GROUP BY c.constructorid, c.name
                             ORDER BY puntos DESC;
             """;
